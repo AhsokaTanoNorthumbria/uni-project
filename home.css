@@ -1,0 +1,95 @@
+body{
+    font-family: Open Sans;
+}
+#searchInput {
+    width: 25vw;
+}
+#search_form{
+    margin-left: 8vw;
+}
+form h2 {
+    text-align: center;
+}
+form p{
+    text-align: center;
+}
+#or {
+    width: 100%;
+    text-align: center;
+    border-bottom: 1px solid #000;
+    line-height: 0.1em;
+    margin: 10px 0 20px;
+}
+nav{
+    font-size: 18px;
+}
+h5 span {
+    background:#fff;
+    padding:0 10px;
+}
+#fb_button {
+    width: 10vw;
+}
+.quiz {
+    padding: 3vw 0vw;
+}
+.quiz_header {
+    margin: 0vw 5vw;
+}
+.quiz_text  {
+    margin: 0vw 5vw;
+}
+
+@media only screen and (max-width: 990px){
+
+    #loginBtn {
+        position: absolute;
+        right: 12vw;
+        top: 20px;
+    }
+    #search_form{
+        margin: 0;
+    }
+}
+.star{
+    border: 0 none;
+    display: inline-block;
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+.review li {
+    float: left;
+    list-style-type: none;
+}
+.review_text{
+    margin: 0vw 3vw;
+}
+footer{
+    height: 20vw;
+    background: grey;
+}
+.image, .quiz_image{
+    min-height: 300px;
+}
+@media only screen and (max-width: 1000px){
+    .container{
+        margin: 0;
+        width: 100%;
+    }
+}
+@media only screen and (max-width: 800px){
+
+    #loginBtn {
+        right: 14vw;
+    }
+    .review_wrap{
+        display: none;
+    }
+}
+@media only screen and (max-width: 600px){
+
+    #loginBtn {
+        right: 17vw;
+    }
+}

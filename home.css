@@ -40,17 +40,6 @@ h5 span {
     margin: 0vw 5vw;
 }
 
-@media only screen and (max-width: 990px){
-
-    #loginBtn {
-        position: absolute;
-        right: 12vw;
-        top: 20px;
-    }
-    #search_form{
-        margin: 0;
-    }
-}
 .star{
     border: 0 none;
     display: inline-block;
@@ -66,18 +55,80 @@ h5 span {
     margin: 0vw 3vw;
 }
 footer{
-    height: 20vw;
+    height: 12vw;
     background: grey;
 }
 .image, .quiz_image{
     min-height: 300px;
 }
+
+#return-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: none;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    -webkit-transition: all 0.3s linear;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    -webkit-transition: all 0.3s ease;
+    -moz-transition: all 0.3s ease;
+    -ms-transition: all 0.3s ease;
+    -o-transition: all 0.3s ease;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+
 @media only screen and (max-width: 1000px){
     .container{
         margin: 0;
         width: 100%;
     }
 }
+@media only screen and (max-width: 1100px){
+    #search_form{
+        margin-left: 3vw;
+    }
+}
+@media only screen and (max-width: 990px){
+
+    #loginBtn {
+        position: absolute;
+        right: 12vw;
+        top: 20px;
+    }
+    #search_form{
+        margin: 0;
+    }
+    #searchInput{
+        width: 200px;
+    }
+}
+
+
 @media only screen and (max-width: 800px){
 
     #loginBtn {

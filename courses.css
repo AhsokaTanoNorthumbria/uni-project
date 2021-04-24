@@ -1,0 +1,261 @@
+body{
+    font-family: Open Sans;
+}
+#searchInput {
+    width: 25vw;
+}
+#search_form{
+    margin-left: 8vw;
+}
+form h2 {
+    text-align: center;
+}
+form p{
+    text-align: center;
+}
+nav{
+    font-size: 18px;
+}
+footer{
+    height: 20vw;
+    background: grey;
+}
+
+#return-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: none;
+    text-decoration: none;
+    border-radius: 35px;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+.course_img{
+    height: 125px;
+}
+.scrolling-wrapper {
+    overflow-x: scroll;
+    overflow-y: hidden;
+    white-space: nowrap;
+}
+.featured {
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+.featured:hover {
+    box-shadow: 0 0 15px rgba(33,33,33,.2);
+    transform: translate(0, -10px);
+    transition: transform 0.3s;
+}
+.allCourse {
+    transition: all 0.3s ease;
+}
+.allCourse:hover {
+    box-shadow: 0 0 15px rgba(33,33,33,.2);
+    transform: translate(0, -10px);
+    transition: transform 0.3s;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+.featured p{
+    white-space: pre-line;
+}
+
+.category{
+    padding: 2vw 0vw;
+    border-radius: 12px;
+    border-style: solid;
+}
+
+.blue{
+    border-color: #075cff;
+    background: linear-gradient( to left, #ffffff 50%,     #4a83f0 50% );
+    background-size: 200% 100%;
+    background-position: right bottom;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.blue:hover {
+     background-position: left bottom;
+     color: white;
+    transition: .3s;
+ }
+.blue:hover .image_wrapper img{
+    z-index: -1;
+}
+.light_blue{
+    border-color: #1886DC;
+    background: linear-gradient( to left, #ffffff 50%,     #439be0 50% );
+    background-size: 200% 100%;
+    background-position: right bottom;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.light_blue:hover{
+    background-position: left bottom;
+    color: white;
+}
+.light_blue:hover .image_wrapper img{
+    z-index: -1;
+}
+.green{
+    border-color: #16CA0B;
+    background: linear-gradient( to left, #ffffff 50%,     #75de6f 50% );
+    background-size: 200% 100%;
+    background-position: right bottom;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.green:hover{
+    background-position: left bottom;
+    color: white;
+}
+.green:hover .image_wrapper img{
+    z-index: -1;
+}
+.purple{
+    border-color: #8D2FE7;
+    background: linear-gradient( to left, #ffffff 50%,     #b063f7 50% );
+    background-size: 200% 100%;
+    background-position: right bottom;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.purple:hover{
+    background-position: left bottom;
+    color: white;
+}
+.purple:hover .image_wrapper img{
+    z-index: -1;
+}
+.orange{
+    border-color: #EC4C17;
+    background: linear-gradient( to left, #ffffff 50%,     #fa7e55 50% );
+    background-size: 200% 100%;
+    background-position: right bottom;
+    cursor: pointer;
+    transition: all ease .3s;
+}
+.orange:hover{
+    background-position: left bottom;
+    color: white;
+}
+.orange:hover .image_wrapper img{
+    z-index: -1;
+}
+.category_text{
+    margin-top: 7vw;
+}
+.allCourses_text{
+    margin-top: 5vw;
+}
+.allCourse{
+    padding: 0;
+}
+footer{
+    height: 12vw;
+    background: grey;
+}
+.category_wrapper{
+    padding: 0;
+}
+.text_wrapper{
+    margin-top: 1rem;
+}
+@media only screen and (max-width: 1000px){
+    .container{
+        min-width: 100%;
+        margin: 0vw;
+    }
+
+}
+@media only screen and (max-width: 1100px){
+    #search_form{
+        margin-left: 3vw;
+    }
+}
+@media only screen and (max-width: 990px){
+
+    #loginBtn {
+        position: absolute;
+        right: 12vw;
+        top: 20px;
+    }
+    #search_form{
+        margin: 0;
+    }
+    #searchInput{
+        width: 200px;
+    }
+}
+
+
+@media only screen and (max-width: 800px){
+
+    #loginBtn {
+        right: 14vw;
+    }
+    .review_wrap{
+        display: none;
+    }
+    .category{
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-content: center;
+    }
+    .category_img{
+        width: 75px;
+        margin: 10px;
+        vertical-align: middle;
+    }
+    .text_wrapper{
+        width: 100%;
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .text_category{
+        margin: 0px 10px;
+    }
+}
+@media only screen and (max-width: 600px){
+
+    #loginBtn {
+        right: 17vw;
+    }
+
+}
+@media only screen and (max-width: 572px){
+    .category_img{
+        width: 40px;
+    }
+}

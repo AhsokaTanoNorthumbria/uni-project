@@ -4,8 +4,8 @@ set_session();
 
 // check if required data has been passed by the link from the email
 if ((isset($_GET['confirmation']) && isset($_GET['hash']))){
-    $email = $_GET['confirmation'];
-    $hash = $_GET['hash'];
+    $email = filter_var($_GET['confirmation'], FILTER_SANITIZE_EMAIL);
+    $hash = filter_var($_GET['hash'], FILTER_SANITIZE_SPECIAL_CHARS);
 
     try {
         $dbConn = getConnection();
@@ -21,6 +21,8 @@ if ((isset($_GET['confirmation']) && isset($_GET['hash']))){
 
             // if reset variable is present in the link, it means that user requested a password reset, so they need to be redirected to the password reset form
             if (isset($_GET['reset'])){
+                // check if the link has expired
+                check_exp($email);
                 $_SESSION['email'] = $email;
                 header("Location: #"); // change # to the password reset page (php)
             }
@@ -41,8 +43,8 @@ if ((isset($_GET['confirmation']) && isset($_GET['hash']))){
                 exceptionHandler($e, $ermessage);
             }
         }
-        // if hash is not the same as one in the database, show this message (or do something else)
-        else echo "<p><strong>A problem has occurred. Please try <a href='sendEmail.php?verification_resend=true'>requesting</a> a new verification email.</strong></p>";
+        // if hash is not the same as one in the database - redirect the user
+        else redirect();
 
 
     } catch (Exception $e) {
@@ -51,5 +53,37 @@ if ((isset($_GET['confirmation']) && isset($_GET['hash']))){
     }
 
 } else header("Location: #") // change # to the homepage
+    
+function check_exp($email){
+    try {
+        $dbConn = getConnection();
+
+        $timeQuery = "SELECT user_email, hash_time 
+                FROM users
+                WHERE user_email = :email";
+        $query = $dbConn->prepare($timeQuery);
+        $query->execute(array(':email' => $email));
+        $getTime = $query->fetchObject();
+
+        $dbtime = strtotime($getTime->hash_time); // unix timestamp
+        $time = time(); // unix timestamp
+        // get hours
+        // if one hour has passed after the email was sent - redirect
+        if((($time - $dbtime) / 3600) >= 1){
+            redirect();
+        }
+
+    } catch (Exception $e) {
+        $ermessage = "Failed to extract the timestamp from the database";
+        exceptionHandler($e, $ermessage);
+    }
+    return 0;
+}
+
+// redirect the user and show a message saying that the link is invalid or has expired (should request a new email)
+function redirect(){
+    $_SESSION['hash'] = false;
+    header("Location: #"); 
+}    
 
 ?>

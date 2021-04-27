@@ -7,18 +7,34 @@ function get_and_validate_input()
 {
     // get and sanitise FIRSTNAME
     $newUser['firstname'] = filter_has_var(INPUT_POST, 'firstname') ? $_POST['firstname'] : null;
+    if(empty(trim($newUser['firstname']))){
+        $_SESSION['emptyFirstname'] = true;
+        header("Location: #"); // change to the logon form
+    }
     $newUser['firstname'] = filter_var($newUser['firstname'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
     // get and sanitise SURNAME
     $newUser['surname'] = filter_has_var(INPUT_POST, 'surname') ? $_POST['surname'] : null;
+    if(empty(trim($newUser['surname']))){
+        $_SESSION['emptySurname'] = true;
+        header("Location: #"); // change to the logon form
+    }
     $newUser['surname'] = filter_var($newUser['surname'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
     // get and sanitise PASSWORD
     $newUser['password'] = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
+    if(empty(trim($newUser['password']))){
+        $_SESSION['emptyPassword'] = true;
+        header("Location: #"); // change to the logon form
+    }
     $newUser['password'] = filter_var($newUser['password'], FILTER_SANITIZE_SPECIAL_CHARS);
     
     // get, sanitise and validate EMAIL
     $newUser['email'] = filter_has_var(INPUT_POST, 'email') ? $_POST['email'] : null;
+    if(empty(trim($newUser['email']))){
+        $_SESSION['emptyEmail'] = true;
+        header("Location: #"); // change to the logon form
+    }
     $newUser['email'] = filter_var($newUser['email'], FILTER_SANITIZE_EMAIL);
     if(!filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)){
         $_SESSION['validEmail'] = false;

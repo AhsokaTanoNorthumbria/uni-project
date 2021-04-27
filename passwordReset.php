@@ -7,8 +7,12 @@ if(isset($_SESSION['email'])){
     $email = $_SESSION['email'];
     // get the password
     $newPassword = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
+    if(empty(trim($newPassword))){
+        $_SESSION['emptyNewPassword'] = true;
+        header("Location: #"); // change to the password reset form
+    }
     $newPassword = filter_var($newPassword, FILTER_SANITIZE_SPECIAL_CHARS);
-
+    // update the password
     try{
         $dbConn = getConnection();
 

@@ -13,8 +13,7 @@ function set_cookie($userID){
 
 
 function logout(){
-    $userID = $_COOKIE['logon_status'];
-    setcookie('logon_status', $userID, time() -3600);
+    setcookie('logon_status', NULL, time() - 1, "/");
     header("Location: #"); // change # to the homepage
 }
 

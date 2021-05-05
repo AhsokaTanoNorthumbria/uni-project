@@ -63,6 +63,7 @@ footer{
 }
 
 #return-to-top {
+    cursor: pointer;
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -101,7 +102,15 @@ footer{
     color: #fff;
     top: 5px;
 }
-
+#loginSubmit {
+    width: 100%;
+}
+#signUpSubmit {
+    width: 100%;
+}
+a {
+    cursor: pointer;
+}
 @media only screen and (max-width: 1000px){
     .container{
         margin: 0;

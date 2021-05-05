@@ -1,0 +1,149 @@
+#loginSubmit {
+    width: 100%;
+}
+#signUpSubmit {
+    width: 100%;
+}
+a {
+    cursor: pointer;
+}
+#return-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: rgb(0, 0, 0);
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    display: none;
+    text-decoration: none;
+    border-radius: 35px;
+    transition: all 0.3s ease;
+}
+#return-to-top i {
+    color: #fff;
+    margin: 0;
+    position: relative;
+    left: 16px;
+    top: 13px;
+    font-size: 19px;
+    transition: all 0.3s ease;
+}
+#return-to-top:hover {
+    background: rgba(0, 0, 0, 0.9);
+}
+#return-to-top:hover i {
+    color: #fff;
+    top: 5px;
+}
+footer{
+    height: 15vw;
+    background: grey;
+}
+body{
+    font-family: Open Sans;
+}
+.blue-back {
+    background-size: 100vw;
+    background: #d9e8ff;
+}
+.btn-success {
+    background: #18b30f !important;
+    border-color: #18b30f !important;
+}
+.btn-success:hover {
+    background: #19910e !important;
+    border-color: #19910e !important;
+}
+
+.light-blue {
+    border: 3px solid #187fd7;
+    border-radius: 12px;
+}
+.purple {
+    border: 3px solid #8D2FE7;
+    border-radius: 12px;
+}
+.timetable {
+    border: 2px solid #808080;
+    border-radius: 12px;
+}
+.sidebar-wrapper{
+    position: fixed;
+    top: 20%;
+    right: 0;
+    border-radius: 15px 0px 0px 15px;
+    background: #DEE2E6;
+    z-index: 100;
+}
+.pointer{
+    cursor: pointer;
+}
+.collapse {
+    position: fixed;
+    z-index: 99;
+}
+.scrollable {
+    height: 365px;
+    overflow-y: auto;
+}
+hr.solid {
+    border-top: 4px solid #bbb;
+}
+hr.solid-header {
+    border-top: 6px solid #808080;
+}
+.notes {
+    width: 500px;
+    position: fixed;
+    top: 20%;
+    right: 55px;
+}
+.tasks {
+    position: fixed;
+    top: 20%;
+    right: 55px;
+}
+.trash {
+    cursor: pointer;
+}
+a {
+    color: black;
+    text-decoration: none;
+}
+a:hover {
+    color: black;
+    text-decoration: none;
+}
+.allCourses_text{
+    margin-top: 5vw;
+}
+.allCourse{
+    padding: 0;
+    transition: all 0.3s ease;
+}
+.allCourse:hover {
+    box-shadow: 0 0 15px rgba(33,33,33,.2);
+    transform: translate(0, -10px);
+    transition: transform 0.3s;
+}
+@media only screen and (max-width: 1000px){
+    .container{
+        min-width: 100%;
+        margin: 0vw;
+    }
+}
+@media only screen and (max-width: 600px){
+
+    .fs-5 {
+        font-size: 12px !important;
+    }
+    .fs-4 {
+        font-size: 14px !important;
+    }
+    .fs-3 {
+        font-size: 16px !important;
+    }
+
+}

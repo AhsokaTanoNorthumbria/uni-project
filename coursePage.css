@@ -57,12 +57,33 @@ footer{
 .module_card {
     width: 100%;
 }
+#loginSubmit {
+    width: 100%;
+}
+#signUpSubmit {
+    width: 100%;
+}
+a {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1100px){
+    #search_form{
+        margin-left: 3vw;
+    }
+}
 @media only screen and (max-width: 990px) {
 
     #loginBtn {
         position: absolute;
         right: 12vw;
         top: 20px;
+    }
+    #search_form{
+        margin: 0;
+    }
+    #searchInput{
+        width: 200px;
     }
 }
 

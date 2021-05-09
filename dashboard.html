@@ -14,8 +14,9 @@
 </head>
 
 <body>
-<main class="d-flex justify-content-center mt-5">
-    <div class="container">
+<main>
+    <div class="wrapper d-flex justify-content-center mt-5">
+        <div class="container">
         <div class="header mb-4">
             <h1 class="mb-2 text-center"><b>Welcome, Joe</b></h1>
             <p class="fs-3 text-center">Here's your timetable for this week</p>
@@ -133,59 +134,64 @@
                 </div>
             </div>
         </div>
-        <div class="blue-back">
-            <h2 class="mb-4 pt-3 text-center"><b>Wanting to start a new course?</b></h2>
-            <div class="form-wrapper d-flex justify-content-center mb-3">
-                <div class="col-10 col-lg-6">
-                    <form id="search_form" class="d-flex me-auto">
-                        <input id="searchInput" class="form-control me-1" type="search" pattern="[a-zd.]{3,}" title="Please enter at least 3 characters with no symbols" placeholder="Search for courses..." aria-label="Search">
-                        <button class="btn btn-success" type="submit">Search</button>
-                    </form>
-                </div>
-            </div>
-            <div class="button-wrapper d-flex justify-content-center mb-5">
-                <div class="col-10 col-lg-6">
-                    <a class="btn btn-primary" href="#" role="button" style="width: 100%">View All Courses</a>
-                </div>
-            </div>
-            <h2 class="mb-4 pt-3 text-center"><b>Based on your current courses, you may like...</b></h2>
-            <div class="row mt-3 d-flex justify-content-between mx-2">
-                <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
-                    <div class="col-11 d-flex justify-content-center">
-                        <div class="allCourse card">
-                            <a href="#">
-                                <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
-                                <h4 class="ms-3 my-4"><b>Course Title</b></h4>
-                                <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
-                            </a>
-                        </div>
+        </div>
+    </div>
+        <div class="blue-back d-flex justify-content-center mt-5">
+            <div class="container">
+                <h2 class="mb-4 pt-3 text-center"><b>Wanting to start a new course?</b></h2>
+                <div class="form-wrapper d-flex justify-content-center mb-3">
+                    <div class="col-10 col-lg-6">
+                        <form id="search_form" class="d-flex me-auto">
+                            <input id="searchInput" class="form-control me-1" type="search" pattern="[a-zd.]{3,}" title="Please enter at least 3 characters with no symbols" placeholder="Search for courses..." aria-label="Search">
+                            <button class="btn btn-success" type="submit">Search</button>
+                        </form>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
-                    <div class="col-11 d-flex justify-content-center">
-                        <div class="allCourse card">
-                            <a href="#">
-                                <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
-                                <h4 class="ms-3 my-4"><b>Course Title</b></h4>
-                                <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
-                            </a>
-                        </div>
+                <div class="button-wrapper d-flex justify-content-center mb-5">
+                    <div class="col-10 col-lg-6">
+                        <a class="btn btn-primary" href="#" role="button" style="width: 100%">View All Courses</a>
                     </div>
                 </div>
-                <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
-                    <div class="col-11 d-flex justify-content-center">
-                        <div class="allCourse card">
-                            <a href="#">
-                                <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
-                                <h4 class="ms-3 my-4"><b>Course Title</b></h4>
-                                <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
-                            </a>
+                <h2 class="mb-4 pt-3 text-center"><b>Based on your current courses, you may like...</b></h2>
+                <div class="row mt-3 d-flex justify-content-between mx-2">
+                    <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
+                        <div class="col-11 d-flex justify-content-center">
+                            <div class="allCourse card">
+                                <a href="#">
+                                    <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
+                                    <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                    <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
+                        <div class="col-11 d-flex justify-content-center">
+                            <div class="allCourse card">
+                                <a href="#">
+                                    <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
+                                    <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                    <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
+                        <div class="col-11 d-flex justify-content-center">
+                            <div class="allCourse card">
+                                <a href="#">
+                                    <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
+                                    <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                    <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     <a onclick="topFunction()" id="return-to-top"><i class="icon-chevron-up"></i></a> <!--Return to top button-->
+    </div>
     </div>
 </main>
 <footer class="mt-0">
@@ -194,19 +200,19 @@
 <!--SIDEBAR-->
 <div class="sidebar-wrapper border border-end-0 border-4">
     <div class="d-grid">
-        <a href="dashboard.html"><img class="pointer mb-5 mx-2" src="data/brainup.png" alt="BrainUp logo" width="50"/></a>
-        <a data-bs-toggle="collapse" href="#notesCollapse" role="button" aria-expanded="false" aria-controls="notesCollapse">
-            <img class="pointer mb-4 mx-2" src="data/clipboard.png" alt="Task Planner" width="50"/>   </a>
-        <a data-bs-toggle="collapse" href="#tasksCollapse" role="button" aria-expanded="false" aria-controls="tasksCollapse">
-            <img class="pointer mb-4 mx-2" src="data/journal-text.svg" alt="Notes" width="48"/>  </a>
+        <a href="dashboard.html"><img class="pointer task_img mb-5 mx-2" src="data/brainup.png" alt="BrainUp logo" width="50"/></a>
+        <a data-bs-toggle="collapse" href="#tasksCollapse" role="button" aria-expanded="false" aria-controls="notesCollapse">
+            <img class="pointer task_img mb-4 mx-2" src="data/clipboard.png" alt="Task Planner" width="50"/>   </a>
+        <a data-bs-toggle="collapse" href="#notesCollapse" role="button" aria-expanded="false" aria-controls="tasksCollapse">
+            <img class="pointer notes_img mb-4 mx-2" src="data/journal-text.svg" alt="Notes" width="48"/>  </a>
 
         <!-- TODO Chat feature here-->
 
-        <img class="pointer mb-5 mx-2" src="data/chat.png" alt="Chat" width="48"/>
+        <img class="pointer chat mb-5 mx-2" src="data/chat.png" alt="Chat" width="48" style="cursor: pointer"/>
 
         <!-- TODO Logout functionality-->
 
-        <img class="pointer mb-2 mx-2" src="data/logout.png" alt="Logout" width="44"/>
+        <img class="pointer logout mb-2 mx-2" src="data/logout.png" alt="Logout" width="44" style="cursor: pointer"/>
     </div>
 </div>
 

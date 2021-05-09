@@ -134,6 +134,44 @@ a:hover {
         min-width: 100%;
         margin: 0vw;
     }
+    .task_img {
+        width: 40px;
+    }
+    .notes_img {
+        width: 38px;
+    }
+    .chat {
+        width: 38px;
+    }
+    .logout {
+        width: 34px;
+    }
+    .notes{
+        right: 45px;
+    }
+    .tasks{
+        right: 45px;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .task_img {
+        width: 30px;
+    }
+    .notes_img {
+        width: 28px;
+    }
+    .chat {
+        width: 28px;
+    }
+    .logout {
+        width: 24px;
+    }
+    .notes{
+        right: 35px;
+    }
+    .tasks{
+        right: 35px;
+    }
 }
 @media only screen and (max-width: 600px){
 

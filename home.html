@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
 
 <head>
     <meta charset="UTF-8">
@@ -63,12 +64,12 @@
                             <form method="post" action="#">
                                 <div class="mb-3">
                                     <label for="loginInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp">
+                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required>
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="loginInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="loginInputPassword1">
+                                    <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="loginInputPassword1" required>
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="remember">
@@ -159,16 +160,16 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="signupInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="signupInputEmail1" aria-describedby="emailHelp">
+                                    <input id="signup-email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="signupInputEmail1" required>
                                     <div id="emailHelp2" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="signupInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="signupInputPassword1">
+                                    <input id="signup-pass" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="signupInputPassword1" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="signupConfirmPassword1" class="form-label">Confirm Password</label>
-                                    <input type="password" class="form-control" id="signupConfirmPassword1">
+                                    <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="signupConfirmPassword1" required>
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="terms">
@@ -233,15 +234,20 @@
                 <form action="#" method="get">
                     <h3 class="mb-3 mt-4 text-center"><b>Create an account now</b></h3>
                     <label for="email" class="form-label">Email</label>
-                    <input type="email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Please enter a valid email adress"/>
+                    <input type="email" class="form-control" id="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" title="Please enter a valid email address" onkeyup='swap_val(this.value, "signup-email")'/>
                     <label for="password" class="form-label mt-2">Password</label>
-                    <input type="password" class="form-control" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" title="Password must be at least 8 characters long, contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 symbol">
-                    <button type="submit" id="signUp_btn" class="form-control block btn btn-primary mt-3"> Sign Up</button>
-                    <p class="mt-3">Already have an account? <a href="#">Log In</a></p>
+                    <input type="password" class="form-control" id="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" title="Password must be at least 8 characters long, contain 1 uppercase letter, 1 lowercase letter, 1 number and 1 symbol" onkeyup='swap_val(this.value, "signup-pass")'>
+                    <button id="signUp_btn" data-bs-toggle="modal" data-bs-target="#signup_modal" class="form-control block btn btn-primary mt-3"> Sign Up</button>
+                    <p class="mt-3">Already have an account? <a data-bs-toggle="modal" data-bs-target="#login_modal" style="text-decoration: underline !important;">Log In</a></p>
                 </form>
             </div>
         </div>
-
+        <script>
+            var swap_val = function  (val, id){
+                var input = document.getElementById(id);
+                input.value = val;
+            }
+        </script>
         <div class="row border my-5">
             <div class="quiz_image col-md-7 col-sm-12" style="background: #808080">
 
@@ -250,11 +256,191 @@
                 <h3 class="quiz_header mt-4 text-center"><b>Not sure which course to choose?</b></h3>
                     <h5 class="quiz_text mt-4 text-center">Complete this short quiz to find out which courses are for you.</h5>
                 <div class="wrapper d-flex justify-content-center">
-                    <button class="btn btn-primary mt-4"> Start Quiz!</button>
+                    <button class="btn btn-primary mt-4" data-bs-toggle="modal" data-bs-target="#quiz1"> Start Quiz!</button>
                 </div>
             </div>
         </div>
-
+        <!-------->
+        <!--Quiz-->
+        <!-------->
+        <div class="modal fade" id="quiz1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><b>Let us help you find the right course</b></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row modal-body m-4 d-flex justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 0%" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="text-center"><b>Question 1 of 4</b></h4>
+                            <p class="text-center fs-4">Which areas of personal development do you struggle with the most?</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Managing my time
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Keeping myself motivated
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Thinking of new ideas
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Getting the most out of Online Learning
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Thinking of new ideas
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-primary mt-4" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#quiz2">Go to next question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="quiz2" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><b>Let us help you find the right course</b></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row modal-body m-4 d-flex justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 25%" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="text-center"><b>Question 2 of 4</b></h4>
+                            <p class="text-center fs-4">Which areas of personal development do you struggle with the most?</p>
+                                <ul class="list-group">
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Managing my time
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Keeping myself motivated
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Thinking of new ideas
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Getting the most out of Online Learning
+                                    </li>
+                                    <li class="list-group-item">
+                                        <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                        Thinking of new ideas
+                                    </li>
+                                </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-primary mt-4" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#quiz3">Go to next question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="quiz3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><b>Let us help you find the right course</b></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row modal-body m-4 d-flex justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="text-center"><b>Question 3 of 4</b></h4>
+                            <p class="text-center fs-4">Which areas of personal development do you struggle with the most?</p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Managing my time
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Keeping myself motivated
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Thinking of new ideas
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Getting the most out of Online Learning
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Thinking of new ideas
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-outline-primary mt-4" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#quiz4">Go to next question</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="quiz4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><b>Let us help you find the right course</b></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row modal-body m-4 d-flex justify-content-center">
+                        <div class="col-12 col-lg-8">
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h4 class="text-center"><b>Question 4 of 4</b></h4>
+                            <p class="text-center fs-4">Which areas of personal development do you struggle with the most?</p>
+                            <ul class="list-group">
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Managing my time
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Keeping myself motivated
+                                </li>
+                                <li class="list-group-item">
+                                    <input class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Thinking of new ideas
+                                </li>
+                                <li class="list-group-item">
+                                    <input  class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Getting the most out of Online Learning
+                                </li>
+                                <li class="list-group-item">
+                                    <input  class="form-check-input me-1" type="checkbox" name="1 qst">
+                                    Thinking of new ideas
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <form id="quiz_form" action="quiz_action.php">
+                            <button type="submit" class="btn btn-outline-primary mt-4"> View Results </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="row my-5">
             <div class="col-md-7 mt-2">
                 <h3 class="text-center mb-5"><b>Join BrainUp and see the benefits in 3 easy steps!</b></h3>

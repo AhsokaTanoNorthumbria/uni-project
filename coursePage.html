@@ -58,12 +58,12 @@
                             <form method="post" action="#">
                                 <div class="mb-3">
                                     <label for="loginInputEmail1" class="form-label">Email address</label>
-                                    <input type="email" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp">
+                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required>
                                     <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="loginInputPassword1" class="form-label">Password</label>
-                                    <input type="password" class="form-control" id="loginInputPassword1">
+                                    <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="loginInputPassword1" required>
                                 </div>
                                 <div class="mb-3 form-check">
                                     <input type="checkbox" class="form-check-input" id="remember">

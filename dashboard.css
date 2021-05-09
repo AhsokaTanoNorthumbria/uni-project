@@ -95,15 +95,16 @@ hr.solid-header {
     border-top: 6px solid #808080;
 }
 .notes {
-    width: 500px;
     position: fixed;
     top: 20%;
     right: 55px;
+    max-width: 95vw !important;
 }
 .tasks {
     position: fixed;
     top: 20%;
     right: 55px;
+    max-width: 95vw !important;
 }
 .trash {
     cursor: pointer;

@@ -9,12 +9,14 @@ function set_session(){
 
 function set_cookie($userID){
     setcookie('logon_status', $userID, time() + (86400 * 14), "/"); //set the cookie, which would expire in 2 weeks
+    setcookie('user-name', $firstname, time() + (86400 * 14), "/"); // cookie for showing the name of the user on the dashboard
 }
 
 
 function logout(){
     setcookie('logon_status', NULL, time() - 1, "/");
-    header("Location: #"); // change # to the homepage
+    setcookie('user-name', NULL, time() - 1, "/");
+    header("Location: home.html"); // change # to the homepage
 }
 
 // DATABASE CONNECTION
@@ -53,5 +55,40 @@ function exceptionHandler ($e, $ermessage) {
 
 }
 set_exception_handler('exceptionHandler');
+
+//logout
+if(isset($_GET['logout'])){
+    logout();
+}
+
+// check if user has an active course with a gived id
+function check_course($courseID){
+    $active = false;
+    if(!isset($_COOKIE['logon_status'])){
+        $active = false;
+    }
+    else {
+        $userID = $_COOKIE['logon_status'];
+        try{
+            $dbConn = getConnection();
+
+            $extractCourseQuery = "SELECT course_id 
+                                FROM active_courses
+                                WHERE course_user_id = :uid AND course_id = :cid";
+            $query = $dbConn->prepare($extractCourseQuery);
+            $query->execute(array(':cid' => $courseID, ':uid' => $userID));
+
+            if(!empty($query->fetchObject())){
+                $active = true;
+            }
+            else $active = false;
+
+        } catch (Exception $e) {
+            $ermessage = "Failed to extract user's active courses from the database";
+            exceptionHandler($e, $ermessage);
+        }
+    }
+    return $active;
+}
 
 ?>

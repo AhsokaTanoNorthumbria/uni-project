@@ -58,8 +58,10 @@ function extr_selected_course($courseID){
     try {
         $dbConn = getConnection();
 
-        $extractCourseQuery = "SELECT course_title, cat_id, course_desc, course_price, course_image, duration, difficulty 
+        $extractCourseQuery = "SELECT course_title, cat_image, course_desc, course_price, course_image, duration, difficulty 
                                 FROM courses
+                                INNER JOIN categories
+                                ON courses.cat_id = categories.cat_id
                                 WHERE course_id = :id";
         $query = $dbConn->prepare($extractCourseQuery);
         $query->execute(array(':id' => $courseID));

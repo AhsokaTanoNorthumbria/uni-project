@@ -238,32 +238,7 @@ if(isset($_GET['courseID'])){
                 <div class="col-lg-5 col-md-12">
                     <div class="course_header d-flex mb-4">
                         <?php
-                            $category = $course->cat_id;
-                            $catImg = '';
-                            if($category=="TMNG"){
-                                $catImg = 'data/cat1.png';
-                            }
-                            if($category=="CWOT"){
-                                $catImg = 'data/cat2.png';
-                            }
-                            if($category=="IDGN"){
-                                $catImg = 'data/cat3.png';
-                            }
-                            if($category=="GRTH"){
-                                $catImg = 'data/cat4.png';
-                            }
-                            if($category=="PRFM"){
-                                $catImg = 'data/cat5.png';
-                            }
-                            if($category=="MTRC"){
-                                $catImg = 'data/cat6.png';
-                            }
-                            if($category=="RDTQ"){
-                                $catImg = 'data/cat7.png';
-                            }
-                            if($category=="MTVN"){
-                                $catImg = 'data/cat8.png';
-                            }
+                            $catImg = $course -> cat_image;
 
                             echo "<img class='img-fluid' src='$catImg' style='height: 50px' alt='course Image web'/>";
 

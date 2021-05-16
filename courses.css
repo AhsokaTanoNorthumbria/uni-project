@@ -96,7 +96,7 @@ a:hover {
 
 .blue{
     border-color: #075cff;
-    background: linear-gradient( to left, #ffffff 50%,     #4a83f0 50% );
+    background: linear-gradient( to left, #ffffff 50%, #85adff 50% );
     background-size: 200% 100%;
     background-position: right bottom;
     cursor: pointer;
@@ -107,12 +107,9 @@ a:hover {
      color: white;
     transition: .3s;
  }
-.blue:hover .image_wrapper img{
-    z-index: -1;
-}
 .light_blue{
     border-color: #1886DC;
-    background: linear-gradient( to left, #ffffff 50%,     #439be0 50% );
+    background: linear-gradient( to left, #ffffff 50%, #8bcbff 50% );
     background-size: 200% 100%;
     background-position: right bottom;
     cursor: pointer;
@@ -122,12 +119,10 @@ a:hover {
     background-position: left bottom;
     color: white;
 }
-.light_blue:hover .image_wrapper img{
-    z-index: -1;
-}
+
 .green{
     border-color: #16CA0B;
-    background: linear-gradient( to left, #ffffff 50%,     #75de6f 50% );
+    background: linear-gradient( to left, #ffffff 50%, #a1ff9c 50% );
     background-size: 200% 100%;
     background-position: right bottom;
     cursor: pointer;
@@ -135,14 +130,10 @@ a:hover {
 }
 .green:hover{
     background-position: left bottom;
-    color: white;
-}
-.green:hover .image_wrapper img{
-    z-index: -1;
 }
 .purple{
     border-color: #8D2FE7;
-    background: linear-gradient( to left, #ffffff 50%,     #b063f7 50% );
+    background: linear-gradient( to left, #ffffff 50%, #cc93ff 50% );
     background-size: 200% 100%;
     background-position: right bottom;
     cursor: pointer;
@@ -152,12 +143,9 @@ a:hover {
     background-position: left bottom;
     color: white;
 }
-.purple:hover .image_wrapper img{
-    z-index: -1;
-}
 .orange{
     border-color: #EC4C17;
-    background: linear-gradient( to left, #ffffff 50%,     #fa7e55 50% );
+    background: linear-gradient( to left, #ffffff 50%, #ffa98b 50% );
     background-size: 200% 100%;
     background-position: right bottom;
     cursor: pointer;
@@ -167,9 +155,7 @@ a:hover {
     background-position: left bottom;
     color: white;
 }
-.orange:hover .image_wrapper img{
-    z-index: -1;
-}
+
 .category_text{
     margin-top: 7vw;
 }
@@ -198,6 +184,9 @@ footer{
 a {
     cursor: pointer;
 }
+.modal-xl {
+    max-width: 90vw !important;
+}
 @media only screen and (max-width: 1000px){
     .container{
         min-width: 100%;
@@ -221,6 +210,9 @@ a {
     }
     #searchInput{
         width: 200px;
+    }
+    .modal-xl {
+        max-width: 100vw !important;
     }
 }
 

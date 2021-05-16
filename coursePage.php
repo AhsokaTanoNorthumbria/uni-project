@@ -33,8 +33,7 @@ if(isset($_GET['courseID'])){
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-5 mb-2 mb-lg-0">
                         <li class="nav-item"> <a class="nav-link" href="home.html">Home</a> </li>
-                        <li class="nav-item "> <a class="nav-link" href="courses.html">Courses</a> </li>
-                        <li class="nav-item "> <a class="nav-link" href="#">Vacancies</a> </li>
+                        <li class="nav-item "> <a class="nav-link" href="courses.php">Courses</a> </li>
                     </ul>
 
                     <!-- SEARCH ---->
@@ -259,12 +258,12 @@ if(isset($_GET['courseID'])){
         </div>
 
 
-        <main class="d-flex justify-content-center">
-
-            <div class="container">
-                <div class="row py-4 border-bottom border-3" style="background: #d9e8ff">
-                    <!-- Course image placeholder mobile/tablet---->
-                    <div class="mb-4 d-md-block d-lg-none col-lg-7 col-md-12">
+        <main>
+            <div class="d-flex justify-content-center" style="background: #d9e8ff">
+                <div class="container">
+                    <div class="row py-4 border-bottom border-3">
+                        <!-- Course image placeholder mobile/tablet---->
+                        <div class="mb-4 d-md-block d-lg-none col-lg-7 col-md-12">
                         <?php
                             echo "<img class='img-fluid' src='{$course->course_image}' alt='course Image mobile'/>";
                             ?>
@@ -296,11 +295,15 @@ if(isset($_GET['courseID'])){
                                 echo"</div>";
                             ?>
                         </div>
-                    <!-- Course image placeholder web---->
-                    <div class="d-md-none d-lg-block col-lg-7 col-md-12" style="background: grey">
+                        <!-- Course image placeholder web---->
+                        <div class="d-md-none d-lg-block col-lg-7 col-md-12" style="background: grey">
+                        </div>
+                    </div>
                     </div>
                 </div>
-                <h3 class="text-start mt-5"><b>Course content</b></h3>
+                <div class="d-flex justify-content-center">
+                    <div class="container">
+                        <h3 class="text-start mt-5"><b>Course content</b></h3>
 
                     <div id="modules_wrapper_web" class="row mt-4  d-none d-lg-flex">
 

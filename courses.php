@@ -35,7 +35,6 @@ else echo "<body>";
             <ul class="navbar-nav me-5 mb-2 mb-lg-0">
                 <li class="nav-item"> <a class="nav-link" href="home.html">Home</a> </li>
                 <li class="nav-item "> <a class="nav-link active" href="courses.php">Courses</a> </li>
-                <li class="nav-item "> <a class="nav-link" href="#">Vacancies</a> </li>
             </ul>
 
             <!-- SEARCH ---->
@@ -259,13 +258,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'TMNG'){
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='blue category' style='background: #85adff !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=TMNG'>";
+                    echo "<a href='courses.php?cat=TMNG'>
+                          <div class='blue category'>";
                 }
                 ?>
-                <div class="blue category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat1.png" class="category_img img-fluid " alt="category image"/>
                     </div>
@@ -280,13 +280,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'CWOT') {
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='green category' style='background: #a1ff9c !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=CWOT'>";
+                    echo "<a href='courses.php?cat=CWOT'>
+                          <div class='green category'>";
                 }
                 ?>
-                <div class="green category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat2.png" class="category_img img-fluid" alt="category image"/>
                     </div>
@@ -301,13 +302,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'IDGN') {
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='light_blue category' style='background: #8bcbff !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=IDGN'>";
+                    echo "<a href='courses.php?cat=IDGN'>
+                          <div class='light_blue category'>";
                 }
                 ?>
-                <div class="light_blue category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat3.png" class="category_img img-fluid" alt="category image"/>
                     </div>
@@ -322,13 +324,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'GRTH') {
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='purple category' style='background: #cc93ff !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=GRTH'>";
+                    echo "<a href='courses.php?cat=GRTH'>
+                          <div class='purple category'>";
                 }
                 ?>
-                <div class="purple category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat4.png" class="category_img img-fluid" alt="category image"/>
                     </div>
@@ -346,13 +349,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'PRFM') {
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='purple category' style='background: #cc93ff !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=PRFM'>";
+                    echo "<a href='courses.php?cat=PRFM'>
+                          <div class='purple category'>";
                 }
                 ?>
-                <div class="purple category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat6.png" class="category_img img-fluid" alt="category image"/>
                     </div>
@@ -367,13 +371,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'MTRC') {
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='orange category' style='background: #ffa98b !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=MTRC'>";
+                    echo "<a href='courses.php?cat=MTRC'>
+                          <div class='orange category'>";
                 }
                 ?>
-                <div class="orange category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat7.png" class="category_img img-fluid" alt="category image"/>
                     </div>
@@ -388,13 +393,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                 if(isset($_GET['cat']) and $_GET['cat'] === 'RDTQ') {
-                    echo "<a href='courses.php'>";
+                    echo "<a href='courses.php'>
+                          <div class='green category' style='background: #a1ff9c !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=RDTQ'>";
+                    echo "<a href='courses.php?cat=RDTQ'>
+                          <div class='green category'>";
                 }
                 ?>
-                <div class="green category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat8.png" class="category_img img-fluid" alt="category image"/>
                     </div>
@@ -409,13 +415,14 @@ else echo "<body>";
             <div class="category_wrapper col-sm-6 col-lg-3 px-2 mb-3">
                 <?php
                     if(isset($_GET['cat']) and $_GET['cat'] === 'MTVN') {
-                    echo "<a href='courses.php'>";
+                        echo "<a href='courses.php'>
+                          <div class='blue category' style='background: #8bcbff !important; color: white;'>";
                 }
                 else{
-                    echo "<a href='courses.php?cat=MTVN'>";
+                    echo "<a href='courses.php?cat=MTVN'>
+                          <div class='blue category'>";
                 }
                 ?>
-                <div class="blue category">
                     <div class="image_wrapper d-flex align-items-center justify-content-center my-1">
                         <img src="data/cat1.png" class="category_img img-fluid" alt="category image"/>
                     </div>

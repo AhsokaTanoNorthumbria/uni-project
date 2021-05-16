@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html"
+      xmlns="http://www.w3.org/1999/html">
+
+<head>
+    <meta charset="UTF-8">
+    <title>BrainUp</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="data/brainup.png">
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans" />
+    <link href="//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+</head>
+<body>
+    <!--Button-->
+    <button type="button" class="nav-item btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#rating_modal">Open the modal button</button>
+    <!--Rating MODAL-->
+    <div class="modal fade" id="rating_modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-xl modal-fullscreen-lg-down">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h1 class="text-center mb-3" style="color: #ffdf00;"><b>Congratulations!</b></h1>
+                    <p class="fs-2 text-center mb-4"><b>You have finished the COURSE TITLE course!</b></p>
+                    <p class="fs-3 text-center mb-5">Why not to rate the course to help other know what it's like?</p>
+                    <div class="d-flex justify-content-center mb-5">
+                        <img onmouseenter="ratingHover(this.id)" onclick="ratingClick(this.id)"id="star-1" class="star mx-2" src="data/star-outline.png" height="75" style="cursor: pointer">
+                        <img onmouseenter="ratingHover(this.id)" onclick="ratingClick(this.id)"id="star-2" class="star mx-2" src="data/star-outline.png" height="75" style="cursor: pointer">
+                        <img onmouseenter="ratingHover(this.id)" onclick="ratingClick(this.id)"id="star-3" class="star mx-2" src="data/star-outline.png" height="75" style="cursor: pointer">
+                        <img onmouseenter="ratingHover(this.id)" onclick="ratingClick(this.id)"id="star-4" class="star mx-2" src="data/star-outline.png" height="75" style="cursor: pointer">
+                        <img onmouseenter="ratingHover(this.id)" onclick="ratingClick(this.id)"id="star-5" class="star mx-2" src="data/star-outline.png" height="75" style="cursor: pointer">
+                    </div>
+                    <!--hidden form to send rating result-->
+                    <form id="form_rating" class="mt-5" method="post" action="ratingAction.php" hidden>
+                        <input type="number" id="rating"/>
+                    </form>
+                    <div class="d-flex justify-content-center mb-3">
+                        <button form="form_rating" type="submit" class="btn btn-primary">Submit your rating</button>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<!--Style for stars-->
+    <style>
+        @media only screen and (max-width: 500px){
+            .star{
+                height: 50px;
+                margin: 0px 5px !important;
+            }
+        }
+    </style>
+<!--JS for stars rating-->
+<script>
+    const stars = ['star-1', 'star-2', 'star-3', 'star-4', 'star-5'];
+    function ratingHover(id) {
+        count = stars.indexOf(id);
+        document.getElementById("rating").value = count+1;
+        for(let i=0; i<stars.length; i++) {
+            star = document.getElementById(stars[i]);
+            if(i<=count) {
+                star.src = "data/star.png";
+            } else {
+                star.src = "data/star-outline.png";
+            }
+        }
+    }
+    function ratingClick(id) {
+        count = stars.indexOf(id);
+        document.getElementById("rating").value = count+1;
+        //Code duplicate for small screen sizes, because the dont support onHover event
+        for(let i=0; i<stars.length; i++) {
+            star = document.getElementById(stars[i]);
+            if(i<=count) {
+                star.src = "data/star.png";
+            } else {
+                star.src = "data/star-outline.png";
+            }
+        }
+    }
+</script>
+</body>
+</html>

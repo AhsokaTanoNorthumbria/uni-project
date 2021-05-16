@@ -5,31 +5,27 @@ set_session();
 // function for validation of user credentials
 function get_and_validate_input()
 {
-    // get and sanitise FULL NAME
-    $newUser['fullName'] = filter_has_var(INPUT_POST, 'fullName') ? $_POST['fullName'] : null;
-    if(empty(trim($newUser['fullName']))){
-        $_SESSION['emptyName'] = true;
-        header("Location: home.php");
+    // get and sanitise FIRSTNAME
+    $newUser['firstname'] = filter_has_var(INPUT_POST, 'firstname') ? $_POST['firstname'] : null;
+    if(empty(trim($newUser['firstname']))){
+        $_SESSION['emptyFirstname'] = true;
+        header("Location: #"); // change to the logon form
     }
-    $newUser['fullName'] = filter_var($newUser['fullName'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
-    $fullName = explode(" ", $newUser['fullName']);
+    $newUser['firstname'] = filter_var($newUser['firstname'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
-    // get FIRSTNAME
-    $newUser['firstname'] = $fullName[0];
-    // get SURNAME
-    $newUser['surname'] = $fullName[1];
-
-    // get DOB
-    $day = filter_has_var(INPUT_POST, 'day') ? $_POST['day'] : null;
-    $month = filter_has_var(INPUT_POST, 'month') ? $_POST['month'] : null;
-    $year = filter_has_var(INPUT_POST, 'year') ? $_POST['year'] : null;
-    $newUser['dob'] = "$year-$month-$day";
+    // get and sanitise SURNAME
+    $newUser['surname'] = filter_has_var(INPUT_POST, 'surname') ? $_POST['surname'] : null;
+    if(empty(trim($newUser['surname']))){
+        $_SESSION['emptySurname'] = true;
+        header("Location: #"); // change to the logon form
+    }
+    $newUser['surname'] = filter_var($newUser['surname'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
 
     // get and sanitise PASSWORD
     $newUser['password'] = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
     if(empty(trim($newUser['password']))){
         $_SESSION['emptyPassword'] = true;
-        header("Location: home.php");
+        header("Location: #"); // change to the logon form
     }
     $newUser['password'] = filter_var($newUser['password'], FILTER_SANITIZE_SPECIAL_CHARS);
     
@@ -37,12 +33,12 @@ function get_and_validate_input()
     $newUser['email'] = filter_has_var(INPUT_POST, 'email') ? $_POST['email'] : null;
     if(empty(trim($newUser['email']))){
         $_SESSION['emptyEmail'] = true;
-        header("Location: home.php");
+        header("Location: #"); // change to the logon form
     }
     $newUser['email'] = filter_var($newUser['email'], FILTER_SANITIZE_EMAIL);
     if(!filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)){
         $_SESSION['validEmail'] = false;
-        header("Location: home.php");
+        header("Location: #"); // change # to the registration form
     }
     // check if user is registered already
     $email = $newUser['email'];
@@ -70,8 +66,7 @@ function registration_check($email){
         if (!empty($getUserID)) {
             // redirect the user back to the registration form if email is present in the database
             $_SESSION['isRegistered'] = true;
-            header("Location: home.php"); 
-            die;
+            header("Location: #"); // change # to the registration form
         }
 
         } catch (Exception $e) {
@@ -92,31 +87,16 @@ function add_new_user($newUser){
      $query = $dbConn->prepare($newUserQuery);
      $query->execute(array(':email' => $newUser['email'], ':firstname' => $newUser['firstname'], ':surname' => $newUser['surname'], ':password' => password_hash($newUser['password'], PASSWORD_DEFAULT), ':hash' => $newUser['verificationHash']));
 
-     // get user id and first name to set the cookie
+     // get user id to set the cookie
      $idQuery = "SELECT user_id, user_email
                 FROM users
                 WHERE user_email = :email";
      $query = $dbConn->prepare($idQuery);
      $query->execute(array(':email' => $newUser['email']));
      $getID = $query->fetchObject();
-     $user['id'] = $getID -> user_id;
-     $user['firstname'] = $newUser['firstname'];
-     // hash user id
-     $user['hash'] = md5($user['id']);
+     $userID = $getID -> user_id;
 
-     // add user id hash to the database
-     try{
-         $newUserQuery = "INSERT INTO users (user_id_hash)
-                        VALUES (:hash)";
-         $query = $dbConn->prepare($newUserQuery);
-         $query->execute(array(':hash' => $user['hash']));
-
-     } catch(Exception $e){
-         $ermessage = "Failed to add the user ID hash to the database";
-         exceptionHandler($e, $ermessage);
-     }
-
-     set_cookie($user);
+     set_cookie($userID);
 
  } catch(Exception $e){
      $ermessage = "Failed to add new user to the database or extract user ID";
@@ -132,11 +112,11 @@ if(!empty($_POST)) {
     require_once 'sendEmail.php';
     send_verification_email($newUser);
 
-    header("Location: dashboard.php"); //change # to the dashboard
+    header("Location: #"); //change # to the dashboard
 }
 
 // if form has not been submitted, redirect user to the homepage
-header("Location: home.php"); //change # to the homepage
+header("Location: #"); //change # to the homepage
 
 
 ?>

@@ -198,6 +198,9 @@ footer{
 a {
     cursor: pointer;
 }
+.modal-xl {
+    max-width: 90vw !important;
+}
 @media only screen and (max-width: 1000px){
     .container{
         min-width: 100%;
@@ -221,6 +224,9 @@ a {
     }
     #searchInput{
         width: 200px;
+    }
+    .modal-xl {
+        max-width: 100vw !important;
     }
 }
 

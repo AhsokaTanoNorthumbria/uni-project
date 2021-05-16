@@ -92,23 +92,6 @@ function extr_syllabus($courseID){
         exceptionHandler($e, $ermessage);
     }
 }
-
-function extr_top_courses(){
-    try {
-        $dbConn = getConnection();
-
-        $topCoursesQuery = "SELECT course_id, course_title, course_brief_desc, course_image, rating_avg, review_count
-                        FROM courses
-                        ORDER BY rating_avg DESC, review_count DESC"; // oder by the highest average rating and review count (the most popular and highly rated)
-        $query = $dbConn->query($topCoursesQuery);
-
-        return $query;
-
-    } catch (Exception $e) {
-        $ermessage = "Failed to extract top courses from the database";
-        exceptionHandler($e, $ermessage);
-    }
-}
 ?>
 
 

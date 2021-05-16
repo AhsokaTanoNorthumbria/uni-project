@@ -2,7 +2,14 @@
 
 // SET SESSION FUNCTION
 function set_session(){
-    ini_set("session.save_path", "/home/unn_w19022158/sessionData/brainup");
+    $fullPath = __DIR__;
+    $pathArray = explode('/', $fullPath);
+    $inDir = "/$pathArray[1]/$pathArray[2]/sessionData/BrainUp";
+    if(!is_dir($inDir)){
+        mkdir($inDir, 0777, true);
+    }
+
+    ini_set("session.save_path", "$inDir");
     if(!isset($_SESSION)) session_start();
 
 }

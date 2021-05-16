@@ -83,7 +83,7 @@ if(isset($_GET['courseID'])){
                                             <button id="loginSubmit" type="submit" class="btn btn-primary">Sign In</button>
                                         </div>
                                         <div class="d-flex justify-content-center mb-3">
-                                            <a href="#" class="link-primary">Forgot your password?</a>
+                                            <a data-bs-target="#forgotPass_modal" data-bs-dismiss="modal" data-bs-toggle="modal" class="link-primary">Forgot your password?</a>
                                         </div>
                                         <div class="d-flex justify-content-center">
                                             <b>New here?</b>
@@ -100,7 +100,40 @@ if(isset($_GET['courseID'])){
                 </div>
             </div>
         </div>
-
+        <div class="modal fade" id="forgotPass_modal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-lg-down">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="my-4">
+                            <div class="row d-flex justify-content-center">
+                                <div class="col-7 d-none d-lg-flex justify-content-center align-items-center">
+                                    <img src="data/pexels-photo-4050315%20(1).jpeg" class="img-fluid">
+                                </div>
+                                <div class="col-12 col-lg-4">
+                                    <!---------------------->
+                                    <!-- FORGOT PASS FORM -->
+                                    <!---------------------->
+                                    <form class="mt-5" method="post" action="#">
+                                        <h3 class="mt-5 text-center"><b>Lets try and reset your password</b></h3>
+                                        <p class="mt-3 mb-5 fs-4 text-center">Enter the email address associated with your BrainUp account</p>
+                                        <div class="mb-3">
+                                            <label for="email_forgot" class="form-label">Email address</label>
+                                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email_forgot" aria-describedby="emailHelp" placeholder="joe.bloggs@example.com" required>
+                                        </div>
+                                        <div class="d-flex justify-content-center">
+                                            <button type="submit" class="btn btn-primary" style="width: 100%">Continue</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <div class="modal fade" id="signup_modal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-dialog-centered modal-fullscreen-lg-down">
                 <div class="modal-content">

@@ -42,12 +42,17 @@ if(isset($_POST['submit'])) {
             $passwordHash = $getUser->password_hash;
             if (password_verify($user['password'], $passwordHash)) {
                 //if verification passed, set the cookie and redirect to the page user came
-                $userID = $getUser -> user_id;
-                set_cookie($userID);
+                $user['id'] = $getUser -> user_id;
+                $user['hash'] = md5($user['id']);
+                $user['firstname'] = $getUser -> firstname;
+                
+                set_cookie($user);
+                
                 $referer = $_SERVER['HTTP_REFERER'];
+                $link = cal_home();
                 // if referer is empty or is set to the homepage, redirect to the dashboard
-                if(empty($referer) or $referer == '#'){ // change # to the homepage link
-                    header("Location: #"); // change # to the dashboard
+                if(empty($referer) or $referer == $link){ // change # to the homepage link
+                    header("Location: dashboard.php"); // change # to the dashboard
                 }
                 // else, redirect to the previous page
                 else header("Location: $referer");
@@ -73,6 +78,20 @@ if(isset($_POST['submit'])) {
     }
 }
 // accidental access
-else header("Location: #"); // change to the homepage
+else header("Location: home.php"); // change to the homepage
+
+// get a domain name and location of the website (directories)
+function cal_home(){
+    $referer = $_SERVER['HTTP_REFERER'];
+    $tmparray = explode('/', $referer);
+    // get an index of the last element of the array
+    $index = (count($tmparray))-1;
+    // remove the last element
+    unset($tmparray[$index]);
+    // join all the array elemets back into one string
+    $referer = implode('/', $tmparray);
+
+    return $referer.'/home.php';
+}
 ?>
 

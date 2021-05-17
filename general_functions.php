@@ -14,14 +14,16 @@ function set_session(){
 
 }
 
-function set_cookie($userID){
-    setcookie('logon_status', $userID, time() + (86400 * 14), "/"); //set the cookie, which would expire in 2 weeks
-    setcookie('user-name', $firstname, time() + (86400 * 14), "/"); // cookie for showing the name of the user on the dashboard
+function set_cookie($user){
+    setcookie('logon_status', $user['id'], time() + (86400 * 14), "/"); //set the cookie, which would expire in 2 weeks
+    setcookie('hash', $user['hash'], time() + (86400 * 14), "/"); //set the cookie, which would expire in 2 weeks (for user ID hash)
+    setcookie('user-name', $user['firstname'], time() + (86400 * 14), "/"); // cookie for showing the name of the user on the dashboard
 }
 
 
 function logout(){
     setcookie('logon_status', NULL, time() - 1, "/");
+    setcookie('hash', NULL, time() - 1, "/");
     setcookie('user-name', NULL, time() - 1, "/");
     header("Location: home.html"); // change # to the homepage
 }

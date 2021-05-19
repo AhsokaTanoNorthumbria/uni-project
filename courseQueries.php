@@ -2,23 +2,8 @@
 require_once 'general_functions.php';
 set_session();
 
-// fetch and return the course information
-function fetch($query){
-    while ($course = $query->fetchObject()) {
-        $courseInf['image'] = $course->course_image;
-        $courseInf['title'] = $course->course_title;
-        $courseInf['desc'] = $course->course_brief_desc;
-        $courseInf['id'] = $course->course_id;
-
-        // display courses
-        return array($courseInf);
-    }
-}
-
-// if category is set, display courses by category
-if(isset($_GET['cat'])) {
-    $category = $_GET['cat'];
-
+// display courses by category
+function extr_by_category($category){
     try {
         $dbConn = getConnection();
 
@@ -29,24 +14,44 @@ if(isset($_GET['cat'])) {
         $query = $dbConn->prepare($coursesQuery);
         $query->execute(array(':catID' => $category));
 
-        fetch($query);
+        return $query;
 
     } catch (Exception $e) {
         $ermessage = "Failed to extract the courses from the database";
         exceptionHandler($e, $ermessage);
     }
 }
-// if category is not set, display all courses
-else{
+
+// extract category name
+function category_name($category){
     try {
         $dbConn = getConnection();
 
-        $coursesQuery = "SELECT course_id, course_title, course_brief_desc, course_image, rating_avg
+        $coursesQuery = "SELECT cat_name
+                        FROM categories
+                        WHERE cat_id = :catID";
+        $query = $dbConn->prepare($coursesQuery);
+        $query->execute(array(':catID' => $category));
+
+        return $query;
+
+    } catch (Exception $e) {
+        $ermessage = "Failed to extract category name from the database";
+        exceptionHandler($e, $ermessage);
+    }
+}
+
+// display all courses
+function extr_all_courses(){
+    try {
+        $dbConn = getConnection();
+
+        $coursesQuery = "SELECT *
                         FROM courses
                         ORDER BY rating_avg DESC";
         $query = $dbConn->query($coursesQuery);
 
-        fetch($query);
+        return $query;
 
     } catch (Exception $e) {
         $ermessage = "Failed to extract the courses from the database";
@@ -93,11 +98,13 @@ function extr_syllabus($courseID){
     }
 }
 
+// display featured courses
 function extr_top_courses(){
+
     try {
         $dbConn = getConnection();
 
-        $topCoursesQuery = "SELECT course_id, course_title, course_brief_desc, course_image, rating_avg, review_count
+        $topCoursesQuery = "SELECT *
                         FROM courses
                         ORDER BY rating_avg DESC, review_count DESC"; // oder by the highest average rating and review count (the most popular and highly rated)
         $query = $dbConn->query($topCoursesQuery);
@@ -109,6 +116,10 @@ function extr_top_courses(){
         exceptionHandler($e, $ermessage);
     }
 }
+
 ?>
+
+
+
 
 

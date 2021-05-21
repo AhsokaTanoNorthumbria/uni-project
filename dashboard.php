@@ -1,3 +1,9 @@
+<?php
+require_once 'general_functions.php';
+require_once 'notes.php';
+set_session();
+if(isset($_COOKIE['logon_status'])){
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +16,7 @@
     <link href="http://code.jquery.com/jquery-1.8.3.min.js" crossorigin="anonymous">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="dashboard.css">
 </head>
 
@@ -18,7 +25,10 @@
     <div class="wrapper d-flex justify-content-center mt-5">
         <div class="container">
         <div class="header mb-4">
-            <h1 class="mb-2 text-center"><b>Welcome, Joe</b></h1>
+            <?php
+                $name = $_COOKIE['user-name'];
+                echo "<h1 class='mb-2 text-center'><b>Welcome, $name</b></h1>";
+                ?>
             <p class="fs-3 text-center">Here's your timetable for this week</p>
         </div>
         <div class="row d-flex justify-content-center mb-5">
@@ -200,7 +210,7 @@
 <!--SIDEBAR-->
 <div class="sidebar-wrapper border border-end-0 border-4">
     <div class="d-grid">
-        <a href="dashboard.html"><img class="pointer task_img mb-5 mx-2" src="data/brainup.png" alt="BrainUp logo" width="50"/></a>
+        <a href="home.html"><img class="pointer task_img mb-5 mx-2" src="data/brainup.png" alt="BrainUp logo" width="50"/></a>
         <a data-bs-toggle="collapse" href="#tasksCollapse" role="button" aria-expanded="false" aria-controls="notesCollapse">
             <img class="pointer task_img mb-4 mx-2" src="data/clipboard.png" alt="Task Planner" width="50"/>   </a>
         <a data-bs-toggle="collapse" href="#notesCollapse" role="button" aria-expanded="false" aria-controls="tasksCollapse">
@@ -212,7 +222,7 @@
 
         <!-- TODO Logout functionality-->
 
-        <img class="pointer logout mb-2 mx-2" src="data/logout.png" alt="Logout" width="44" style="cursor: pointer"/>
+        <a href="general_functions.php?logout=true"><img class="pointer logout mb-2 mx-2" src="data/logout.png" alt="Logout" width="44" style="cursor: pointer"/></a>
     </div>
 </div>
 
@@ -224,39 +234,22 @@
             <div class="me-2">
                 <h4><b>Notepad</b></h4>
                 <hr class="solid-header mb-3">
-                <div class="d-flex justify-content-between mb-2">
-                    <h5> Note title 1 </h5>
-                    <div>
-
-                        <!-- TODO Delete note function-->
-
-                        <img class="trash" onclick="" src="data/trash.png" alt="trash" width="20"/>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur.</p>
-                <hr class="solid">
-                <div class="d-flex justify-content-between mb-2">
-                    <h5> Note title 2 </h5>
-                    <div>
-
-                        <!-- TODO Delete note function-->
-
-                        <img class="trash" onclick="" src="data/trash.png" alt="trash" width="20"/>
-                    </div>
-                </div>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean venenatis ultrices euismod.</p>
-                <hr class="solid">
+                
+                
+                <div id="display_notes"></div>
+                <!-- DISPLAY NOTES -->
+              
+                
                 <div class="mb-3">
-                    <input type="text" class="form-control form-control-sm mx-1"  placeholder="Note title">
+                    <input type="text" id="note_title" class="form-control form-control-sm mx-1"  placeholder="Note title">
                 </div>
                 <div class="mb-3">
-                    <textarea class="form-control mx-1" rows="1"></textarea>
+                    <textarea id="note_text" class="form-control mx-1" rows="1"></textarea>
                 </div>
                 <div class="d-flex justify-content-center mt-2">
 
-                    <!-- TODO Add PHP script to insert note and refresh notes-->
 
-                    <button type="button" class="btn btn-outline-info btn-sm"> + Note </button>
+                    <button type="button" onclick="add('note')" class="btn btn-outline-info btn-sm"> + Note </button>
                 </div>
             </div>
         </div>
@@ -271,25 +264,20 @@
             <div class="me-2">
                 <h4><b>Task Planner</b></h4>
                 <hr class="solid-header mb-3">
-                <div class="d-flex justify-content-between">
-                    <h5><b>Task title</b></h5>
-                    <div>
-
-                        <!-- TODO Delete task function-->
-
-                        <img class="trash" onclick="" src="data/trash.png" alt="trash" width="20"/>
-                    </div>
-                </div>
-                <p class="fs-6">Task comment</p>
-                <hr class="solid">
+                
+                
+                <div id="display_tasks"></div>
+                    <!-- DISPLAY TASKS -->
+                
+                
+                
                 <div class="mb-3">
-                    <input type="text" class="form-control form-control-sm mb-2 mx-1" placeholder="New task">
-                    <input type="text" class="form-control form-control-sm mx-1" placeholder="Task comment">
+                    <input type="text" id="task_title" class="form-control form-control-sm mb-2 mx-1" placeholder="New task">
+                    <input type="text" id="task_text" class="form-control form-control-sm mx-1" placeholder="Task comment">
                     <div class="d-flex justify-content-center mt-2">
 
-                        <!-- TODO Add PHP script to insert task and refresh tasks-->
 
-                        <button type="button" class="btn btn-outline-info btn-sm"> + Task </button>
+                        <button type="button" onclick="add('task')" class="btn btn-outline-info btn-sm"> + Task </button>
                     </div>
                 </div>
             </div>
@@ -315,5 +303,93 @@
         }
     };
 </script>
+            <!-- LOAD -->
+<script>
+    load_notes();
+    load_tasks();
+
+    function load_notes(){
+        $.ajax({
+            url: "notes.php?extract=true",
+            method: "GET",
+            success: function(data){
+                $('#display_notes').html(data);
+            }
+        })
+    }
+
+    function load_tasks(){
+        $.ajax({
+            url: "tasks.php?extract=true",
+            method: "GET",
+            success: function(data){
+                $('#display_tasks').html(data);
+            }
+        })
+    }
+</script>
+            <!-- DELETE -->
+<script>
+
+    function delete_note(id){
+        $.ajax({
+            url: "notes.php?delete_note=true&noteID="+id,
+            method: "GET",
+            success: function(){
+                load_notes();
+            }
+
+        })
+    }
+
+    function delete_task(id){
+        $.ajax({
+            url: "tasks.php?delete_task=true&taskID="+id,
+            method: "GET",
+            success: function(){
+                load_tasks();
+            }
+
+        })
+    }
+
+</script>
+            <!-- ADD -->
+<script>
+    function add(obj) {
+        if(obj === 'note'){
+            let title = $('#note_title').val();
+            let text = $('#note_text').val();
+            $.ajax({
+                url: 'notes.php?add_note=true',
+                method: 'POST',
+                data: "note_title="+title+"&note_text="+text,
+                success: function() {
+                    load_notes();
+                    document.getElementById('note_title').value = '';
+                    document.getElementById('note_text').value = '';
+                }
+            })
+        }
+        if(obj === 'task'){
+            let title = $('#task_title').val();
+            let text = $('#task_text').val();
+            $.ajax({
+                url: 'tasks.php?add_task=true',
+                method: 'POST',
+                data: "task_title="+title+"&task_text="+text,
+                success: function() {
+                    load_tasks();
+                    document.getElementById('task_title').value = '';
+                    document.getElementById('task_text').value = '';
+                }
+            })
+        }
+    }
+</script>
 </body>
+<?php
+}
+else header("Location: home.html");
+?>
 

@@ -64,7 +64,7 @@ if(isset($_POST['submit'])) {
     try {
         $dbConn = getConnection();
 
-        $userQuery = "SELECT user_id, user_email, password_hash
+        $userQuery = "SELECT user_id, user_email, password_hash, firstname
                     FROM users
                     WHERE user_email = :email";
         $query = $dbConn->prepare($userQuery);

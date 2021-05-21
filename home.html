@@ -61,23 +61,23 @@
                             <!---------------->
                             <!-- LOGIN FORM -->
                             <!---------------->
-                                <form class="mt-5" method="post" action="#">
+                                <form class="mt-5" method="post" action="logonVerification.php">
                                     <h3 class="my-5 text-center"><b>Login to BrainUp</b></h3>
                                     <div class="mb-3">
                                         <label for="loginInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required>
+                                        <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="loginInputEmail1" aria-describedby="emailHelp" required>
                                         <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
                                     </div>
                                     <div class="mb-3">
                                         <label for="loginInputPassword1" class="form-label">Password</label>
-                                        <input type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="loginInputPassword1" required>
+                                        <input type="password" name="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="loginInputPassword1" required>
                                     </div>
                                     <div class="mb-3 form-check">
                                         <input type="checkbox" class="form-check-input" id="remember">
                                         <label class="form-check-label" for="remember">Remember me </label>
                                     </div>
                                     <div class="mb-2">
-                                        <button id="loginSubmit" type="submit" class="btn btn-primary">Sign In</button>
+                                        <button id="loginSubmit" name="submit" type="submit" class="btn btn-primary">Sign In</button>
                                     </div>
                                     <div class="d-flex justify-content-center mb-3">
                                         <a data-bs-target="#forgotPass_modal" data-bs-dismiss="modal" data-bs-toggle="modal" class="link-primary">Forgot your password?</a>
@@ -113,15 +113,15 @@
                             <!---------------------->
                             <!-- FORGOT PASS FORM -->
                             <!---------------------->
-                            <form class="mt-5" method="post" action="#">
+                            <form class="mt-5" method="post" action="passwordReset.php">
                                 <h3 class="mt-5 text-center"><b>Lets try and reset your password</b></h3>
                                 <p class="mt-3 mb-5 fs-4 text-center">Enter the email address associated with your BrainUp account</p>
                                 <div class="mb-3">
                                     <label for="email_forgot" class="form-label">Email address</label>
-                                    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email_forgot" aria-describedby="emailHelp" placeholder="joe.bloggs@example.com" required>
+                                    <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email_forgot" aria-describedby="emailHelp" placeholder="joe.bloggs@example.com" required>
                                 </div>
                                 <div class="d-flex justify-content-center">
-                                    <button type="submit" class="btn btn-primary" style="width: 100%">Continue</button>
+                                    <button type="submit" name="submit" class="btn btn-primary" style="width: 100%">Continue</button>
                                 </div>
                             </form>
                         </div>
@@ -149,14 +149,14 @@
                             <!-- CREATE ACCOUNT FORM -->
                             <!------------------------->
                             <h3 class="mb-4 text-center"><b>Create a BrainUp account</b></h3>
-                            <form method="post" action="#">
+                            <form method="post" action="registrationProcess.php">
                                 <div class="mb-3">
                                     <label for="inputName" class="form-label">Full Name</label>
-                                    <input type="text" class="form-control" id="inputName" placeholder="Joe Bloggs" required>
+                                    <input type="text" name="fullName" class="form-control" id="inputName" placeholder="Joe Bloggs" required>
                                 </div>
                                 <label for="day" class="form-label">Date of Birth</label>
                                 <div class="d-flex justify-content-between mb-3">
-                                    <select id="day" class="form-select" aria-label="Default select example" style="width: 20%" required>
+                                    <select id="day" name="day" class="form-select" aria-label="Default select example" style="width: 20%" required>
                                         <script>
                                             var selectList = document.getElementById("day");
                                             //Create and append the options
@@ -168,7 +168,7 @@
                                             }
                                         </script>
                                     </select>
-                                    <select class="form-select" aria-label="Default select example" style="width: 50%" required>
+                                    <select class="form-select" name="month" aria-label="Default select example" style="width: 50%" required>
                                         <option value="1" selected>January</option>
                                         <option value="2">February</option>
                                         <option value="3">March</option>
@@ -182,7 +182,7 @@
                                         <option value="11">November</option>
                                         <option value="12">December</option>
                                     </select>
-                                    <select id="year" class="form-select" aria-label="Default select example" style="width: 25%" required>
+                                    <select id="year" name="year" class="form-select" aria-label="Default select example" style="width: 25%" required>
                                         <script>
                                             var selectList = document.getElementById("year");
                                             //Create and append the options
@@ -197,12 +197,12 @@
                                 </div>
                                 <div class="mb-3">
                                     <label for="signupInputEmail1" class="form-label">Email address</label>
-                                    <input id="signup-email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="signupInputEmail1" required>
+                                    <input id="signup-email" name="email" type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="signupInputEmail1" required>
                                     <div id="emailHelp2" class="form-text">We'll never share your email with anyone else.</div>
                                 </div>
                                 <div class="mb-3">
                                     <label for="signupInputPassword1" class="form-label">Password</label>
-                                    <input id="signup-pass" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="signupInputPassword1" required>
+                                    <input id="signup-pass" name="password" type="password" pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,}$" class="form-control" id="signupInputPassword1" required>
                                 </div>
                                 <div class="mb-3">
                                     <label for="signupConfirmPassword1" class="form-label">Confirm Password</label>
@@ -215,7 +215,7 @@
                                     </label>
                                 </div>
                                 <div class="mb-3">
-                                    <button id="signUpSubmit" type="submit" class="btn btn-primary">Sign Up</button>
+                                    <button id="signUpSubmit" name="submit" type="submit" class="btn btn-primary">Sign Up</button>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <b>Already have an account?</b>

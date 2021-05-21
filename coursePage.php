@@ -79,7 +79,7 @@ if(isset($_GET['courseID'])){
                                             <label class="form-check-label" for="remember">Remember me </label>
                                         </div>
                                         <div class="mb-2">
-                                            <button id="loginSubmit" type="submit" class="btn btn-primary">Sign In</button>
+                                            <button id="loginSubmit" name="submit" type="submit" class="btn btn-primary">Sign In</button>
                                         </div>
                                         <div class="d-flex justify-content-center mb-3">
                                             <a data-bs-target="#forgotPass_modal" data-bs-dismiss="modal" data-bs-toggle="modal" class="link-primary">Forgot your password?</a>
@@ -115,15 +115,15 @@ if(isset($_GET['courseID'])){
                                     <!---------------------->
                                     <!-- FORGOT PASS FORM -->
                                     <!---------------------->
-                                    <form class="mt-5" method="post" action="#">
+                                    <form class="mt-5" method="post" action="passwordReset.php">
                                         <h3 class="mt-5 text-center"><b>Lets try and reset your password</b></h3>
                                         <p class="mt-3 mb-5 fs-4 text-center">Enter the email address associated with your BrainUp account</p>
                                         <div class="mb-3">
                                             <label for="email_forgot" class="form-label">Email address</label>
-                                            <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email_forgot" aria-describedby="emailHelp" placeholder="joe.bloggs@example.com" required>
+                                            <input type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" class="form-control" id="email_forgot" aria-describedby="emailHelp" placeholder="joe.bloggs@example.com" required>
                                         </div>
                                         <div class="d-flex justify-content-center">
-                                            <button type="submit" class="btn btn-primary" style="width: 100%">Continue</button>
+                                            <button type="submit" name"submit" class="btn btn-primary" style="width: 100%">Continue</button>
                                         </div>
                                     </form>
                                 </div>
@@ -214,7 +214,7 @@ if(isset($_GET['courseID'])){
                                             </label>
                                         </div>
                                         <div class="mb-3">
-                                            <button id="signUpSubmit" type="submit" class="btn btn-primary">Sign Up</button>
+                                            <button id="signUpSubmit" name"submit" type="submit" class="btn btn-primary">Sign Up</button>
                                         </div>
                                         <div class="d-flex justify-content-center">
                                             <b>Already have an account?</b>

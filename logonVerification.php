@@ -2,11 +2,16 @@
 require_once 'general_functions.php';
 set_session();
 
+
+// get a domain name and location of the website (directories)
 function cal_home(){
     $referer = $_SERVER['HTTP_REFERER'];
     $array = explode('/', $referer);
+    // get an index of the last element of the array
     $index = (count($array))-1;
+    // remove the last element
     unset($array[$index]);
+    // join all the array elemets back into one string
     $referer = implode('/', $array);
 
     return $referer.'/home.html';
@@ -118,19 +123,5 @@ if(isset($_POST['submit'])) {
 }
 // accidental access
 else header("Location: home.html"); // change to the homepage
-
-// get a domain name and location of the website (directories)
-function cal_home(){
-    $referer = $_SERVER['HTTP_REFERER'];
-    $tmparray = explode('/', $referer);
-    // get an index of the last element of the array
-    $index = (count($tmparray))-1;
-    // remove the last element
-    unset($tmparray[$index]);
-    // join all the array elemets back into one string
-    $referer = implode('/', $tmparray);
-
-    return $referer.'/home.php';
-}
 ?>
 

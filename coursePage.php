@@ -289,8 +289,15 @@ if(isset($_GET['courseID'])){
                                 <a href='lesson.html'><button class='course_pay btn btn-primary mt-2'>Continue the course</button></a> ";
                                 }
                                 else {
+                                    if (isset($_COOKIE['logon_status'])) {
+                                    $hash = $_COOKIE['hash'];
                                     echo "
-                                <a href='payment.php?courseID=$courseID'><button class='course_pay btn btn-primary mt-2'>Start Course £{$course->course_price}</button></a> ";
+                            <a href='payment.php?courseID=$courseID&payment=$hash'><button class='course_pay btn btn-primary mt-2'>Start Course £{$course->course_price}</button></a> ";
+                                    }
+                                    else{
+                                        echo "
+                                <a href='payment.php?courseID=$courseID&payment=false'><button class='course_pay btn btn-primary mt-2'>Start Course £{$course->course_price}</button></a> ";
+                                    }
                                 }
                                 echo"</div>";
                             ?>

@@ -2,12 +2,21 @@
 require_once 'general_functions.php';
 set_session();
 
+$courseID = filter_var($_GET['courseID'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
+if (!(empty($courseID))) {
 
-if (isset($_GET['payment']) && isset($_GET['courseID'])) {
-
-    $courseID = filter_var($_GET['courseID'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
     // if payment was successfully made, get user id and add the course to the active_courses table
-    if ($_GET['payment'] == true) {
+    if(!(empty($_COOKIE['logon_status'])))
+		{
+			//get username hash from the user cookie
+			$userCookie = $_COOKIE['hash'];
+			$loggedIn = true;
+		}
+	 // if user not loggged in (if user cookie does not exist)	
+	 else header("Location: coursePage.php?courseID=$courseID"); // to the course description page (use the course id to redirect to the page)	
+	
+	// if payment was successfully made, get user id and add the course to the active_courses table	
+	if ($loggedIn && $_GET['payment'] === $userCookie) {
 
         $userID = $_COOKIE['logon_status'];
 
@@ -19,7 +28,7 @@ if (isset($_GET['payment']) && isset($_GET['courseID'])) {
             $query = $dbConnection->prepare($courseQuery);
             $query->execute(array(':cID' => $courseID, ':uID' => $userID));
 
-            header("Location: #"); // to the course
+            header("Location: lesson.php?courseID=$courseID&modOrder=1&lessonOrder=1"); // redirect user to the first lesson of the course
 
         } catch (Exception $e) {
             $m = "Failed to add new course to the active courses table";
@@ -27,7 +36,7 @@ if (isset($_GET['payment']) && isset($_GET['courseID'])) {
         }
 
     }
-    // if payment did not go through (if payment variable is set to false)
-    else header("Location: #"); // to the course description page (use the course id to redirect to the page)
+    // if payment did not go through (if payment variable was not the user hash or user was not logged in)
+    else header("Location: coursePage.php?courseID='$courseID'"); // to the course description page (use the course id to redirect to the page)
 }
-else header("Location: #"); // homepage
+else header("Location: home.html"); // if no course ID was passed in the URL, redirect the user to the homepage

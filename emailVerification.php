@@ -83,7 +83,7 @@ function check_exp($email){
 // redirect the user and show a message saying that the link is invalid or has expired (should request a new email)
 function redirect(){
     $_SESSION['hash'] = false;
-    header("Location: #"); 
+    header("Location: home.html"); 
 }    
 
 ?>

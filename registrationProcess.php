@@ -9,7 +9,7 @@ function get_and_validate_input()
     $newUser['fullName'] = filter_has_var(INPUT_POST, 'fullName') ? $_POST['fullName'] : null;
     if(empty(trim($newUser['fullName']))){
         $_SESSION['emptyName'] = true;
-        header("Location: home.php");
+        header("Location: home.html");
     }
     $newUser['fullName'] = filter_var($newUser['fullName'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
     $fullName = explode(" ", $newUser['fullName']);
@@ -29,7 +29,7 @@ function get_and_validate_input()
     $newUser['password'] = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
     if(empty(trim($newUser['password']))){
         $_SESSION['emptyPassword'] = true;
-        header("Location: home.php");
+        header("Location: home.html");
     }
     $newUser['password'] = filter_var($newUser['password'], FILTER_SANITIZE_SPECIAL_CHARS);
     
@@ -37,12 +37,12 @@ function get_and_validate_input()
     $newUser['email'] = filter_has_var(INPUT_POST, 'email') ? $_POST['email'] : null;
     if(empty(trim($newUser['email']))){
         $_SESSION['emptyEmail'] = true;
-        header("Location: home.php");
+        header("Location: home.html");
     }
     $newUser['email'] = filter_var($newUser['email'], FILTER_SANITIZE_EMAIL);
     if(!filter_var($newUser['email'], FILTER_VALIDATE_EMAIL)){
         $_SESSION['validEmail'] = false;
-        header("Location: home.php");
+        header("Location: home.html");
     }
     // check if user is registered already
     $email = $newUser['email'];
@@ -70,7 +70,7 @@ function registration_check($email){
         if (!empty($getUserID)) {
             // redirect the user back to the registration form if email is present in the database
             $_SESSION['isRegistered'] = true;
-            header("Location: home.php"); 
+            header("Location: home.html"); 
             die;
         }
 
@@ -136,7 +136,7 @@ if(!empty($_POST)) {
 }
 
 // if form has not been submitted, redirect user to the homepage
-header("Location: home.php"); //change # to the homepage
+else header("Location: home.html"); //change # to the homepage
 
 
 ?>

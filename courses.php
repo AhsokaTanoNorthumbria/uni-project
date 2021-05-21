@@ -81,7 +81,7 @@ else echo "<body>";
                                     <label class="form-check-label" for="remember">Remember me </label>
                                 </div>
                                 <div class="mb-2">
-                                    <button id="loginSubmit" type="submit" class="btn btn-primary">Sign In</button>
+                                    <button id="loginSubmit" name="submit" type="submit" class="btn btn-primary">Sign In</button>
                                 </div>
                                 <div class="d-flex justify-content-center mb-3">
                                     <a href="#" class="link-primary">Forgot your password?</a>
@@ -183,7 +183,7 @@ else echo "<body>";
                                     </label>
                                 </div>
                                 <div class="mb-3">
-                                    <button id="signUpSubmit" type="submit" class="btn btn-primary">Sign Up</button>
+                                    <button id="signUpSubmit" name="submit" type="submit" class="btn btn-primary">Sign Up</button>
                                 </div>
                                 <div class="d-flex justify-content-center">
                                     <b>Already have an account?</b>

@@ -7,7 +7,7 @@ function extr_by_category($category){
     try {
         $dbConn = getConnection();
 
-        $coursesQuery = "SELECT course_id, course_title, course_brief_desc, course_image, rating_avg
+        $coursesQuery = "SELECT *
                         FROM courses
                         WHERE cat_id = :catID
                         ORDER BY rating_avg DESC";
@@ -63,7 +63,7 @@ function extr_selected_course($courseID){
     try {
         $dbConn = getConnection();
 
-        $extractCourseQuery = "SELECT course_title, cat_image, course_desc, course_price, course_image, duration, difficulty 
+        $extractCourseQuery = "SELECT * 
                                 FROM courses
                                 INNER JOIN categories
                                 ON courses.cat_id = categories.cat_id
@@ -83,7 +83,7 @@ function extr_syllabus($courseID){
     try {
         $dbConn = getConnection();
 
-        $extractCourseQuery = "SELECT mod_order, mod_title, mod_duration, brief_desc, mod_desc, mod_image
+        $extractCourseQuery = "SELECT *
                                 FROM course_syllabus
                                 WHERE course_id = :id
                                 ORDER BY mod_order ASC";

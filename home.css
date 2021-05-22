@@ -58,9 +58,6 @@ footer{
     height: 12vw;
     background: grey;
 }
-.image, .quiz_image{
-    min-height: 300px;
-}
 
 #return-to-top {
     cursor: pointer;
@@ -114,6 +111,15 @@ a {
 .modal-xl {
     max-width: 90vw !important;
 }
+#top_mobile{
+    display: none;
+}
+#cq_tablet {
+    display: none;
+}
+#cq_mobile{
+    display: none;
+}
 @media only screen and (max-width: 1000px){
     .container{
         margin: 0;
@@ -141,6 +147,18 @@ a {
     .modal-xl {
         max-width: 100vw !important;
     }
+    #cq_wide{
+        display: none;
+    }
+    #cq_tablet{
+        display: block;
+    }
+    #top_web {
+        display:none;
+    }
+    #top_mobile{
+        display: block;
+    }
 }
 
 
@@ -151,6 +169,11 @@ a {
     }
     .review_wrap{
         display: none;
+    }
+}
+@media only screen and (max-width: 762px){
+    .container{
+        min-width: 95% !important;
     }
 }
 @media only screen and (max-width: 600px){

@@ -108,10 +108,7 @@ if(isset($_COOKIE['logon_status'])){
                             <a class="btn btn-primary btn-lg my-2" href="#" role="button" style="width: 100%">Start Next Lesson</a>
                             <a class="btn btn-primary btn-lg mb-2" href="#" role="button" style="width: 100%">Preview Previous Lesson</a>
                             <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <button type="button" class="btn btn-success mb-2" style="width: 100%">Web Chat</button>
-                                </div>
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12">
                                     <button type="button" class="btn btn-success mb-2" style="width: 100%">Options</button>
                                 </div>
                             </div>
@@ -132,10 +129,7 @@ if(isset($_COOKIE['logon_status'])){
                             <a class="btn btn-primary btn-lg my-2" href="#" role="button" style="width: 100%">Start Next Lesson</a>
                             <a class="btn btn-primary btn-lg mb-2" href="#" role="button" style="width: 100%">Preview Previous Lesson</a>
                             <div class="row">
-                                <div class="col-12 col-sm-6">
-                                    <button type="button" class="btn btn-success mb-2" style="width: 100%">Web Chat</button>
-                                </div>
-                                <div class="col-12 col-sm-6">
+                                <div class="col-12">
                                     <button type="button" class="btn btn-success mb-2" style="width: 100%">Options</button>
                                 </div>
                             </div>
@@ -215,14 +209,7 @@ if(isset($_COOKIE['logon_status'])){
             <img class="pointer task_img mb-4 mx-2" src="data/clipboard.png" alt="Task Planner" width="50"/>   </a>
         <a data-bs-toggle="collapse" href="#notesCollapse" role="button" aria-expanded="false" aria-controls="tasksCollapse">
             <img class="pointer notes_img mb-4 mx-2" src="data/journal-text.svg" alt="Notes" width="48"/>  </a>
-
-        <!-- TODO Chat feature here-->
-
-        <img class="pointer chat mb-5 mx-2" src="data/chat.png" alt="Chat" width="48" style="cursor: pointer"/>
-
-        <!-- TODO Logout functionality-->
-
-        <a href="general_functions.php?logout=true"><img class="pointer logout mb-2 mx-2" src="data/logout.png" alt="Logout" width="44" style="cursor: pointer"/></a>
+        <a href="general_functions.php?logout=true"><img class="pointer logout mt-3 mb-2 mx-2" src="data/logout.png" alt="Logout" width="44" style="cursor: pointer"/></a>
     </div>
 </div>
 

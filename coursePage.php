@@ -266,7 +266,9 @@ if(isset($_GET['courseID'])){
                         <div class="mb-4 d-md-block d-lg-none col-lg-7 col-md-12">
                         <?php
                             echo "<img class='img-fluid' src='{$course->course_image_mobile}' alt='course Image mobile'/>";
-                            ?>
+                        ?>
+                    </div>
+                    <p class="text-center fs-6 mt-2">Based on 20 rating</p>
                     </div>
                     <div class="col-lg-5 col-md-12">
                         <div class="course_header d-flex mb-4">
@@ -282,6 +284,13 @@ if(isset($_GET['courseID'])){
 
                             <p class='fs-5 text-center'><b>Time to complete:</b> {$course->duration} hrs</p>
                             <p class='fs-5 text-center'><b>Difficulty:</b> {$course->difficulty}</p>
+                            <div class="d-lg-none">
+                                <h4 class="text-center mt-3"><b>Average course rating</b></h4>
+                                <div class="d-flex justify-content-center mt-3">
+                                    <img src="data/3.png" class="img-fluid" style="height: 30px">
+                                </div>
+                                 <p class="text-center fs-6 mt-2">Based on 20 rating</p>
+                            </div>
                             <div class='button_wrapper d-flex justify-content-center'>";
                                 $active = check_course($courseID);
                                 if($active === true) {
@@ -308,6 +317,11 @@ if(isset($_GET['courseID'])){
                                 <?php
                                     echo "<img src='{$course->course_image_laptop}' class='img-fluid' id='desc-wide'>";
                                 ?>
+                                <h4 class="text-center mt-3"><b>Average course rating</b></h4>
+                                <div class="d-flex justify-content-center mt-3">
+                                <img src="data/3.png" class="img-fluid" style="height: 45px">
+                            </div>
+                    <p class="text-center fs-6 mt-2">Based on 20 rating</p>
                             </div>
                          </div>
                     </div>

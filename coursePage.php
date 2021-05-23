@@ -3,7 +3,7 @@ require_once 'general_functions.php';
 require_once 'courseQueries.php';
 set_session();
 if(isset($_GET['courseID'])){
-    $courseID = $_GET['courseID'];
+    $courseID = filter_var($_GET['courseID'], FILTER_SANITIZE_STRING, FILTER_FLAG_NO_ENCODE_QUOTES);
     $descriptionQuery = extr_selected_course($courseID);
     $course = $descriptionQuery->fetchObject();
     if(!empty($course)){

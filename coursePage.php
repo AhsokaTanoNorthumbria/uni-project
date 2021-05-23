@@ -303,8 +303,11 @@ if(isset($_GET['courseID'])){
                             ?>
                         </div>
                         <!-- Course image placeholder web---->
-                        <div class="d-md-none d-lg-block col-lg-7 col-md-12" style="background: grey">
-                        </div>
+                        <div class="d-none d-lg-block col-7 d-flex justify-content-center mt-lg-5 mt-xl-0">
+                            <div>
+                                <img src="data/courseDesc-widelaptop.jpg" class="img-fluid" id="desc-wide">
+                            </div>
+                         </div>
                     </div>
                     </div>
                 </div>

@@ -211,20 +211,16 @@ if(isset($_COOKIE['logon_status'])){
                 
                 <div id="display_notes"></div>
                 <!-- DISPLAY NOTES -->
-              
-                
-                <div class="mb-3">
-                    <input type="text" id="note_title" class="form-control form-control-sm mx-1"  placeholder="Note title">
-                </div>
-                <div class="mb-3">
-                    <textarea id="note_text" class="form-control mx-1" rows="1"></textarea>
-                </div>
-                <div class="d-flex justify-content-center mt-2">
-
-
-                    <button type="button" onclick="add('note')" class="btn btn-outline-info btn-sm"> + Note </button>
-                </div>
             </div>
+        </div>
+         <div class="mb-3">
+            <input type="text" id="note_title" class="form-control form-control-sm mx-1"  placeholder="Note title">
+        </div>
+        <div class="mb-3">
+            <textarea id="note_text" class="form-control mx-1" rows="1"></textarea>
+        </div>
+        <div class="d-flex justify-content-center mt-2">
+            <button type="button" onclick="add('note')" class="btn btn-outline-info btn-sm"> + Note </button>
         </div>
     </div>
 </div>

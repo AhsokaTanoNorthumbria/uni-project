@@ -174,16 +174,16 @@ if(isset($_COOKIE['logon_status'])){
     <div class="p-0 copyright d-flex justify-content-center">
         <p class="text center mt-4 fs-6" style="color: white"><b>© BrainUp 2021</b></p>
     </div>
-    <div class="p-0 social d-flex justify-content-center">
+        <div class="p-0 social d-flex justify-content-center">
         <p class="text center mt-1 mt-md-4 fs-6" style="color: white"><b>Find us on social media: </b></p>
         <a href="https://facebook.com" class="ms-2 mt-md-3">
-            <img src="data/facebook.png" class="img-fluid" style="width: 30px">
+            <img src="data/twitter.png" class="img-fluid" style="width: 30px">
         </a>
         <a href="https://facebook.com" class="ms-2 mt-md-3">
-            <img src="data/facebook.png" class="img-fluid" style="width: 30px">
+            <img src="data/instagram.png" class="img-fluid" style="width: 30px">
         </a>
         <a href="https://facebook.com" class="ms-2 mt-md-3">
-            <img src="data/facebook.png" class="img-fluid" style="width: 30px">
+            <img src="data/twitter.png" class="img-fluid" style="width: 30px">
         </a>
     </div>
 </footer>

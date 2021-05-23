@@ -242,8 +242,8 @@ else echo "<body>";
                         $top = $getTop->fetchObject();
                         echo "
                     <a href='coursePage.php?courseID={$top->course_id}'>
-                    <div class='featured card col-10 col-md-7 col-lg-4 col-xl-3 ms-4'>
-                        <img src='{$top->course_image_laptop}' class='img-fluid' alt='course Image'/>
+                    <div class='featured card col-10 col-md-7 col-lg-4 ms-4'>
+                        <img src='{$top->course_image}' class='img-fluid' alt='course Image'/>
                         <h4 class='ms-3 my-4'><b>{$top->course_title}</b></h4>
                         <p class='mx-3'>{$top->course_brief_desc}</div></a>";
                     }
@@ -450,7 +450,7 @@ else echo "<body>";
                     <div class='col-sm-12 col-md-6 col-lg-4 px-3 mb-4'>
                         <div class='allCourse card'>
                         <a href='coursePage.php?courseID={$byCategory->course_id}'>
-                            <img src='{$byCategory->course_image-laptop}' class='img-fluid' alt='course image'/>
+                            <img src='{$byCategory->course_image}' class='img-fluid' alt='course image'/>
                             <h4 class='ms-3 my-4'><b>{$byCategory->course_title}</b></h4>
                             <p class='mx-3'>$byCategory->course_brief_desc
                             </a></div>
@@ -472,7 +472,7 @@ else echo "<body>";
             <div class='col-sm-12 col-md-6 col-lg-4 px-3 mb-4'>
                 <div class='allCourse card'>
                 <a href='coursePage.php?courseID={$course->course_id}'>
-                    <img src='{$course->course_image_laptop}' class='img-fluid' alt='course image'/>
+                    <img src='{$course->course_image}' class='img-fluid' alt='course image'/>
                     <h4 class='ms-3 my-4'><b>{$course->course_title}</b></h4>
                     <p class='mx-3'>$course->course_brief_desc
                     </a></div>

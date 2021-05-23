@@ -48,6 +48,9 @@ else echo "<body>";
         </div>
         <!-- LOGIN BUTTON ---->
         <button type="button" id="loginBtn" class="nav-item btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#login_modal">Login</button>
+        <form action="#" method="get">
+            <button type="submit" id="logoutBtn" class="btn btn-primary" style="display: none">Logout</button>
+        </form>
     </div>
 </nav>
 

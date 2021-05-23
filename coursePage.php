@@ -265,7 +265,7 @@ if(isset($_GET['courseID'])){
                         <!-- Course image placeholder mobile/tablet---->
                         <div class="mb-4 d-md-block d-lg-none col-lg-7 col-md-12">
                         <?php
-                            echo "<img class='img-fluid' src='{$course->course_image}' alt='course Image mobile'/>";
+                            echo "<img class='img-fluid' src='{$course->course_image_mobile}' alt='course Image mobile'/>";
                             ?>
                     </div>
                     <div class="col-lg-5 col-md-12">

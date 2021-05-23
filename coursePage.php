@@ -265,7 +265,7 @@ if(isset($_GET['courseID'])){
                         <!-- Course image placeholder mobile/tablet---->
                         <div class="mb-4 d-md-block d-lg-none col-lg-7 col-md-12">
                         <?php
-                            echo "<img class='img-fluid' src='{$course->course_image_mobile}' alt='course Image mobile'/>";
+                            echo "<img class='img-fluid' src='{$course->course_image}' alt='course Image mobile'/>";
                             ?>
                     </div>
                     <div class="col-lg-5 col-md-12">
@@ -355,7 +355,8 @@ if(isset($_GET['courseID'])){
                                         <h5 class='mb-2 text-start'><b>Module {$syllabus->mod_order}: {$syllabus->mod_title}</b></h5>
                                         {$syllabus->mod_desc}
                                     </div>
-                                    <div class='col-3 d-lg-block d-none' style='background: grey'>
+                                    <div class='col-3 d-lg-block d-none'>
+                                    <img src='data/module.png' class='img-fluid'>
                                     </div>
                                 </div>
                             </div>
@@ -388,7 +389,8 @@ if(isset($_GET['courseID'])){
                                         <h5 class='mb-2 text-start'><b>Module {$syllabus->mod_order}: {$syllabus->mod_title}</b></h5>
                                         {$syllabus->mod_desc}                
                                     </div>
-                                    <div class='col-3 d-lg-block d-none' style='background: grey'>
+                                    <div class='col-3 d-lg-block d-none'>
+                                    <img src='data/module.png' class='img-fluid'>
                                     </div>
                                 </div>
                             </div> 

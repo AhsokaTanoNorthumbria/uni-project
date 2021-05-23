@@ -330,7 +330,7 @@ else echo "<body>";
                         <img src="data/cat2.png" class="category_img img-fluid" alt="category image"/>
                     </div>
                     <div class="text_wrapper d-flex align-items-center justify-content-center">
-                        <h5 class="text_category text-center"><b>Goal setting</b></h5>
+                        <h5 class="text_category text-center"><b>Coping with Working Online</b></h5>
                     </div>
                 </div>
                 <?php

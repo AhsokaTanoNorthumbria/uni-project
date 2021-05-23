@@ -237,18 +237,16 @@ if(isset($_COOKIE['logon_status'])){
                 
                 <div id="display_tasks"></div>
                     <!-- DISPLAY TASKS -->
-                
-                
-                
-                <div class="mb-3">
-                    <input type="text" id="task_title" class="form-control form-control-sm mb-2 mx-1" placeholder="New task">
-                    <input type="text" id="task_text" class="form-control form-control-sm mx-1" placeholder="Task comment">
-                    <div class="d-flex justify-content-center mt-2">
+            </div>
+        </div>
+        <div class="mb-3">
+            <input type="text" class="form-control form-control-sm mb-2 mx-1" placeholder="New task">
+            <input type="text" class="form-control form-control-sm mx-1" placeholder="Task comment">
+            <div class="d-flex justify-content-center mt-2">
 
+                <!-- TODO Add PHP script to insert task and refresh tasks-->
 
-                        <button type="button" onclick="add('task')" class="btn btn-outline-info btn-sm"> + Task </button>
-                    </div>
-                </div>
+                <button type="button" class="btn btn-outline-info btn-sm"> + Task </button>
             </div>
         </div>
     </div>

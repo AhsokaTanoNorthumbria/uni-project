@@ -3,18 +3,14 @@ require_once 'general_functions.php';
 set_session();
 
 
-// get a domain name and location of the website (directories)
+// get the page user came from
 function cal_home(){
     $referer = $_SERVER['HTTP_REFERER'];
     $array = explode('/', $referer);
     // get an index of the last element of the array
     $index = (count($array))-1;
-    // remove the last element
-    unset($array[$index]);
-    // join all the array elemets back into one string
-    $referer = implode('/', $array);
 
-    return $referer.'/home.html';
+    return $array[$index];
 }
 
 function cal_payment($ind, $hash){
@@ -22,7 +18,7 @@ function cal_payment($ind, $hash){
         $referer = $_SERVER['HTTP_REFERER'];
         $array = explode('&', $referer);
         $index = (count($array))-1;
-        echo $array[$index];
+        
         return $array[$index];
     }
     if($ind === 'get'){
@@ -88,8 +84,9 @@ if(isset($_POST['submit'])) {
                 $home = cal_home();
                 
                 // if referer is empty or is set to the homepage, redirect to the dashboard
-                if(empty($referer) or $referer == $home){ // change # to the homepage link
-                    header("Location: dashboard.php"); // change # to the dashboard
+                if(empty($referer) or $home === 'home.html'){ 
+                    header("Location: dashboard.php"); 
+                    die;
                 }
                 // if referrer is the payment page
                 if($payment === "payment=false"){
@@ -122,6 +119,6 @@ if(isset($_POST['submit'])) {
     }
 }
 // accidental access
-else header("Location: home.html"); // change to the homepage
+else header("Location: home.html"); 
 ?>
 

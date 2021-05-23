@@ -132,7 +132,7 @@ a {
 }
 @media only screen and (max-width: 990px){
 
-    #loginBtn {
+    #loginBtn, #logoutBtn {
         position: absolute;
         right: 12vw;
         top: 20px;
@@ -163,7 +163,7 @@ a {
 
 @media only screen and (max-width: 800px){
 
-    #loginBtn {
+    #loginBtn, #logoutBtn {
         right: 14vw;
     }
     .review_wrap{
@@ -177,7 +177,7 @@ a {
 }
 @media only screen and (max-width: 600px){
 
-    #loginBtn {
+    #loginBtn, #logoutBtn {
         right: 17vw;
     }
 }

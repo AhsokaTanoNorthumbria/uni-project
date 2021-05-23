@@ -57,13 +57,13 @@ set_session();
     <div class="container-fluid">
 
         <!-- LOGO AND NAV TABS ---->
-        <a class="navbar-brand mx-4 pb-3" href="home.php"> <img src="data/logo.png" width="120" height="40" class="d-inline-block" alt="logo of BrainUp"></a>
+        <a class="navbar-brand mx-4 pb-3" href="home.html"> <img src="data/logo.png" width="120" height="40" class="d-inline-block" alt="logo of BrainUp"></a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav me-5 mb-2 mb-lg-0">
-                <li class="nav-item"> <a class="nav-link" href="home.php">Home</a> </li>
+                <li class="nav-item"> <a class="nav-link" href="home.html">Home</a> </li>
                 <li class="nav-item "> <a class="nav-link" href="courses.php">Courses</a> </li>
                 <li class="nav-item "> <a class="nav-link" href="#">Vacancies</a> </li>
             </ul>
@@ -77,16 +77,9 @@ set_session();
 
         </div>
         <!-- LOGIN BUTTON ---->
-        <?php
-        if (isset($_COOKIE['logon_status'])){
-            echo "
-                    <a href='general_functions.php?logout=true'><button type='button' id='loginBtn' class='nav-item btn btn-primary me-3'>Log out</button></a>";
-        }
-        else{
-            echo "
-                    <button type='button' id='loginBtn' class='nav-item btn btn-primary me-3' data-bs-toggle='modal' data-bs-target='#login_modal'>Login</button>";
-        }
-        ?>
+        
+        <button type='button' id='loginBtn' class='nav-item btn btn-primary me-3' data-bs-toggle='modal' data-bs-target='#login_modal'>Login</button>
+       
     </div>
 </nav>
 

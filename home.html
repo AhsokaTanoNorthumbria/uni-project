@@ -431,7 +431,7 @@
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="quiz4" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal fade" id="quiz4" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -470,9 +470,47 @@
                         </div>
                     </div>
                     <div class="modal-footer">
+                        <button class="btn btn-outline-primary mt-4" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#quiz_res">Results</button>
                         <form id="quiz_form" action="quiz_action.php">
                             <button type="submit" class="btn btn-outline-primary mt-4"> View Results </button>
                         </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="quiz_res" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog modal-xl modal-fullscreen-lg-down modal-dialog-centered modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3><b>Results</b></h3>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="row modal-body m-4 d-flex justify-content-center">
+                        <h2 class="text-center"><b>Thanks for completing the quiz</b></h2>
+                        <div class="col-12 col-lg-8 mt-3">
+                            <div class="progress mb-3">
+                                <div class="progress-bar" role="progressbar" style="width: 75%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                            </div>
+                            <h3 class="text-center">Based on your answers, we think you might like...</h3>
+                            <div class="row mt-3 d-flex justify-content-evenly">
+                                <div class="col-12 col-md-6 col-xl-5 mt-4">
+                                    <div class="allCourse card">
+                                        <a href="courses.html">
+                                            <img src="data/pexels-photo-5965884.jpeg" class="img-fluid" alt="course image"/>
+                                            <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                            <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                                        </a></div>
+                                </div>
+                                <div class="col-12 col-md-6 col-xl-5 mt-4">
+                                    <div class="allCourse card">
+                                        <a href="courses.html">
+                                            <img src="data/pexels-photo-5965884.jpeg"  class="img-fluid" alt="course image"/>
+                                            <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                            <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                                        </a></div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

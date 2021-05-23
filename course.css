@@ -209,7 +209,7 @@ footer{
 }
 @media only screen and (max-width: 990px){
 
-    #loginBtn {
+    #loginBtn, #logoutBtn {
         position: absolute;
         right: 12vw;
         top: 20px;
@@ -225,7 +225,7 @@ footer{
 
 @media only screen and (max-width: 800px){
 
-    #loginBtn {
+    #loginBtn, #logoutBtn {
         right: 14vw;
     }
     .review_wrap{
@@ -255,7 +255,7 @@ footer{
 }
 @media only screen and (max-width: 600px){
 
-    #loginBtn {
+    #loginBtn, #logoutBtn {
         right: 17vw;
     }
 

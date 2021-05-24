@@ -68,18 +68,18 @@ set_session();
                 <li class="nav-item "> <a class="nav-link" href="#">Vacancies</a> </li>
             </ul>
 
-            <!-- SEARCH ---->
-            <form id="search_form" class="d-flex me-auto">
-                <input id="searchInput" class="form-control me-1" type="search" placeholder="Search for courses..." aria-label="Search">
-                <button class="btn btn-outline-success" type="submit">Search</button>
-            </form>
-
-
         </div>
         <!-- LOGIN BUTTON ---->
         
-        <button type='button' id='loginBtn' class='nav-item btn btn-primary me-3' data-bs-toggle='modal' data-bs-target='#login_modal'>Login</button>
-       
+	<?php
+        if(isset($_COOKIE['logon_status'])){
+            echo "<button type='button' onclick='logout()' id='logoutBtn' class='btn btn-primary' style='display: block !important;'>Logout</button>";
+        }
+        else{
+            echo "<button type='button' id='loginBtn' class='nav-item btn btn-primary me-3' data-bs-toggle='modal' data-bs-target='#login_modal'>Login</button>
+                        <form action='#' method='get'></form>";
+        }
+        ?>
     </div>
 </nav>
 
@@ -313,16 +313,12 @@ set_session();
 <footer class="mt-5">
 
 </footer>
-</body>
-<?php
-    /*}
-	else {
-	    unset($_SESSION['payment-loggedin']);
-	    $referer = $_SERVER['HTTP_REFERER'];
-        $array = explode('&', $referer);
-        $url = $array[0];
+	<script>
 
-        header("Location: $url");
-    }*/
-?>
+    function logout(){
+        window.location.href = 'general_functions.php?logout=true';
+    }
+
+</script>
+</body>
 </html>

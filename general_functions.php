@@ -25,7 +25,7 @@ function logout(){
     setcookie('logon_status', NULL, time() - 1, "/");
     setcookie('hash', NULL, time() - 1, "/");
     setcookie('user-name', NULL, time() - 1, "/");
-    header("Location: home.html"); // change # to the homepage
+    header("Location: home.php"); // change # to the homepage
 }
 
 // DATABASE CONNECTION

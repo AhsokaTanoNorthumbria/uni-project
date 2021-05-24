@@ -36,19 +36,18 @@ if(isset($_GET['courseID'])){
                         <li class="nav-item "> <a class="nav-link" href="courses.php">Courses</a> </li>
                     </ul>
 
-                    <!-- SEARCH ---->
-                    <form id="search_form" class="d-flex me-auto">
-                        <input id="searchInput" class="form-control me-1" type="search" placeholder="Search for courses..." aria-label="Search">
-                        <button class="btn btn-outline-success" type="submit">Search</button>
-                    </form>
-
 
                 </div>
                 <!-- LOGIN BUTTON ---->
-                <button type="button" id="loginBtn" class="nav-item btn btn-primary me-3" data-bs-toggle="modal" data-bs-target="#login_modal">Login</button>
-                        <form action="#" method="get">
-            <button type="submit" id="logoutBtn" class="btn btn-primary" style="display: none">Logout</button>
-        </form>
+                <?php
+        if(isset($_COOKIE['logon_status'])){
+            echo "<button type='button' onclick='logout()' id='logoutBtn' class='btn btn-primary' style='display: block !important;'>Logout</button>";
+        }
+        else{
+            echo "<button type='button' id='loginBtn' class='nav-item btn btn-primary me-3' data-bs-toggle='modal' data-bs-target='#login_modal'>Login</button>
+                        <form action='#' method='get'></form>";
+        }
+        ?>
             </div>
         </nav>
 
@@ -463,6 +462,13 @@ if(isset($_GET['courseID'])){
         </a>
     </div>
         </footer>
+            <script>
+
+    function logout(){
+        window.location.href = 'general_functions.php?logout=true';
+    }
+
+</script>
         </body>
         </html>
 <?php

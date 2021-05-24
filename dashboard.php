@@ -314,7 +314,7 @@ if(isset($_COOKIE['logon_status'])){
 
                 <!-- TODO Add PHP script to insert task and refresh tasks-->
 
-                <button type="button" class="btn btn-outline-info btn-sm"> + Task </button>
+                <button type="button" onclick="add('task')" class="btn btn-outline-info btn-sm"> + Task </button>
             </div>
         </div>
     </div>

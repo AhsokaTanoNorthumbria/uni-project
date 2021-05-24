@@ -222,7 +222,7 @@ if(isset($_COOKIE['logon_status'])){
 <!--SIDEBAR-->
 <div class="sidebar-wrapper border border-end-0 border-4">
     <div class="d-grid">
-        <a href="home.html"><img class="pointer task_img mb-5 mx-2" src="data/brainup.png" alt="BrainUp logo" width="50"/></a>
+        <a href="home.php"><img class="pointer task_img mb-5 mx-2" src="data/brainup.png" alt="BrainUp logo" width="50"/></a>
         <a data-bs-toggle="collapse" href="#tasksCollapse" role="button" aria-expanded="false" aria-controls="notesCollapse">
             <img class="pointer task_img mb-4 mx-2" src="data/clipboard.png" alt="Task Planner" width="50"/>   </a>
         <a data-bs-toggle="collapse" href="#notesCollapse" role="button" aria-expanded="false" aria-controls="tasksCollapse">
@@ -400,6 +400,6 @@ if(isset($_COOKIE['logon_status'])){
 </body>
 <?php
 }
-else header("Location: home.html");
+else header("Location: home.php");
 ?>
 

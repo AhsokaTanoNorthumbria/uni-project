@@ -47,4 +47,4 @@ if (!(empty($courseID))) {
     // if payment did not go through (if payment variable was not the user hash or user was not logged in)
     else header("Location: coursePage.php?courseID='$courseID'"); // to the course description page (use the course id to redirect to the page)
 }
-else header("Location: home.html"); // if no course ID was passed in the URL, redirect the user to the homepage
+else header("Location: home.php"); // if no course ID was passed in the URL, redirect the user to the homepage

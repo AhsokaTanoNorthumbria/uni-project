@@ -1,6 +1,7 @@
 <?php
 require_once 'general_functions.php';
-require_once 'notes.php';
+require_once 'recommender_functions.php';
+require_once 'courseQueries.php';
 set_session();
 if(isset($_COOKIE['logon_status'])){
 ?>
@@ -95,48 +96,79 @@ if(isset($_COOKIE['logon_status'])){
         </div>
         <h2 class="mb-4 text-center"><b>Your current courses</b></h2>
         <div class="row d-flex justify-content-center mb-5">
-            <div class="col-12 col-xl-6 mb-3 d-flex justify-content-center">
-                <div class="light-blue col-11">
-                    <div class="content-wrapper m-2 d-flex align-items-center flex-column flex-md-row justify-content-evenly">
-                        <div class="col-12 col-md-4">
-                            <div class="d-flex justify-content-center">
-                                <img src="data/cat1.png" alt="course logo" width="100">
+            
+            
+            <?php
+            $userID = $_COOKIE['logon_status'];
+            // get all active courses
+            $activeQuery = check_active($userID);
+            while($fetchActive = $activeQuery->fetchObject()){
+                $courseID = $fetchActive->course_id;
+                // extract all needed information about the course
+                $courseTable = extr_selected_course($courseID);
+                $fetchCourse = $courseTable->fetchObject();
+                // get category image
+                $catImageQuery = category_name($fetchCourse->cat_id);
+                $fetchCat = $catImageQuery->fetchObject();
+                $catImg = $fetchCat->cat_image;
+                // get data from the user's progress table for generating urls
+                $getProgress = get_progress($userID, $courseID);
+                $fetchProgress = $getProgress->fetchObject();
+                $lesson = $fetchProgress->prog_lesson_order;
+                $module = $fetchProgress->prog_mod_order;
+
+                $previousLesson = $lesson-1;
+                $nextLesson = $lesson;
+                $urlNext = '';
+                $urlPrevious = '';
+
+                // generate the urls
+                if($lesson==1){
+                    $urlNext = 'lesson.php?courseID='.$courseID.'&modOrder='.$module.'&lessonOrder='.$nextLesson;
+                    $urlPrevious = '#';
+                }
+                if($lesson<3 and $lesson>1){
+                    $urlNext = 'lesson.php?courseID='.$courseID.'&modOrder='.$module.'&lessonOrder='.$nextLesson;
+                    $urlPrevious = 'lesson.php?courseID='.$courseID.'&modOrder='.$module.'&lessonOrder='.$previousLesson;
+                }
+                if($lesson==3 and $module < 6) {
+                    $nextModule = $module + 1;
+                    $urlNext = 'lesson.php?courseID='.$courseID.'&modOrder='.$nextModule.'&lessonOrder=1';
+                    $urlPrevious = 'lesson.php?courseID='.$courseID.'&modOrder='.$module.'&lessonOrder='.$previousLesson;
+
+                }
+                if($lesson==3 && $module==6){
+                    $urlPrevious = 'lesson.php?courseID='.$courseID.'&modOrder='.$module.'&lessonOrder='.$previousLesson;
+                    $urlNext = 'courses.php';
+                }
+
+                    echo "
+                     <div class='col-12 col-xl-6 mb-3 d-flex justify-content-center'>
+                <div class='light-blue col-11'>
+                    <div class='content-wrapper m-2 d-flex align-items-center flex-column flex-md-row justify-content-evenly'>
+                        <div class='col-12 col-md-4'>
+                            <div class='d-flex justify-content-center'>
+                                <img src='$catImg' alt='course logo' width='100'>
                             </div>
-                            <p class="fs-5 text-center"><b>Time management</b></p>
+                            <p class='fs-5 text-center'><b>$fetchCourse->course_title</b></p>
                         </div>
-                        <div class="col-12 col-md-7">
-                            <a class="btn btn-primary btn-lg my-2" href="#" role="button" style="width: 100%">Start Next Lesson</a>
-                            <a class="btn btn-primary btn-lg mb-2" href="#" role="button" style="width: 100%">Preview Previous Lesson</a>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="button" class="btn btn-success mb-2" style="width: 100%">Options</button>
+                        <div class='col-12 col-md-7'>
+                            <a class='btn btn-primary btn-lg my-2' href='$urlNext' role='button' style='width: 100%'>Start Next Lesson</a>
+                            <a class='btn btn-primary btn-lg mb-2' href='$urlPrevious' role='button' style='width: 100%'>Preview Previous Lesson</a>
+                            <div class='row'>
+                                <div class='col-12'>
+                                    <button type='button' class='btn btn-success mb-2' style='width: 100%'>Options</button>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-12 col-xl-6 mb-3 d-flex justify-content-center">
-                <div class="purple col-11">
-                    <div class="content-wrapper m-2 d-flex align-items-center flex-column flex-md-row justify-content-evenly">
-                        <div class="col-12 col-md-4">
-                            <div class="d-flex justify-content-center">
-                                <img src="data/cat6.png" alt="course logo" width="100">
-                            </div>
-                            <p class="fs-5 text-center"><b>Performance</b></p>
-                        </div>
-                        <div class="col-12 col-md-7">
-                            <a class="btn btn-primary btn-lg my-2" href="#" role="button" style="width: 100%">Start Next Lesson</a>
-                            <a class="btn btn-primary btn-lg mb-2" href="#" role="button" style="width: 100%">Preview Previous Lesson</a>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="button" class="btn btn-success mb-2" style="width: 100%">Options</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            </div>";
+            }
+            ?>
+            
+            
+            
         </div>
         </div>
     </div>

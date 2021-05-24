@@ -23,15 +23,23 @@ if (!(empty($courseID))) {
         try {
             $dbConnection = getConnection();
 
+		// add new user to the active courses table
             $courseQuery = "INSERT INTO active_courses (course_user_id, course_id)
-                        VALUES (':cID', ':uID')";
+                        VALUES (:cID, :uID)";
             $query = $dbConnection->prepare($courseQuery);
             $query->execute(array(':cID' => $courseID, ':uID' => $userID));
+		
+		// add new user to the course progress table
+            $courseQuery = "INSERT INTO user_progress (prog_user_id, prog_course_id, prog_mod_order, prog_lesson_order)
+                        VALUES (:uID, :cID, :mID, :lID)";
+            $query = $dbConnection->prepare($courseQuery);
+            $query->execute(array(':uID' => $userID, ':cID' => $courseID, ':mID' => 1, ':lID' => 1));
+
 
             header("Location: lesson.php?courseID=$courseID&modOrder=1&lessonOrder=1"); // redirect user to the first lesson of the course
 
         } catch (Exception $e) {
-            $m = "Failed to add new course to the active courses table";
+            $m = "Failed to add new course to the active courses table and new user to the user progress table";
             exceptionHandler($e, $m);
         }
 

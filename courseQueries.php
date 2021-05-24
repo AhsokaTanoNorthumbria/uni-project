@@ -27,7 +27,7 @@ function category_name($category){
     try {
         $dbConn = getConnection();
 
-        $coursesQuery = "SELECT cat_name
+        $coursesQuery = "SELECT cat_name, cat_image
                         FROM categories
                         WHERE cat_id = :catID";
         $query = $dbConn->prepare($coursesQuery);
@@ -113,6 +113,42 @@ function extr_top_courses(){
 
     } catch (Exception $e) {
         $ermessage = "Failed to extract top courses from the database";
+        exceptionHandler($e, $ermessage);
+    }
+}
+
+function extr_lesson($courseID, $modOrder, $lessonOrder){
+    try {
+        $dbConn = getConnection();
+
+        $progressQuery = "SELECT *
+                        FROM lessons
+                        WHERE course_id = :cID AND mod_order = :mID AND lesson_order = :lID";
+        $query = $dbConn->prepare($progressQuery);
+        $query->execute(array(':cID' => $courseID,':mID'=>$modOrder,':lID' => $lessonOrder));
+
+        return $query;
+
+    } catch (Exception $e) {
+        $ermessage = "Failed to extract the lesson from the database";
+        exceptionHandler($e, $ermessage);
+    }
+}
+
+function get_progress($userID, $courseID){
+    try {
+        $dbConn = getConnection();
+
+        $progressQuery = "SELECT *
+                        FROM user_progress
+                        WHERE prog_user_id = :uID AND prog_course_id = :cID";
+        $query = $dbConn->prepare($progressQuery);
+        $query->execute(array(':uID'=>$userID,':cID' => $courseID));
+
+        return $query;
+
+    } catch (Exception $e) {
+        $ermessage = "Failed to extract user's progress from the database";
         exceptionHandler($e, $ermessage);
     }
 }

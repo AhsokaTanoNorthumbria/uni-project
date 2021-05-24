@@ -39,20 +39,20 @@ if(isset($_POST['submit'])) {
     $user['email'] = filter_has_var(INPUT_POST, 'email') ? $_POST['email'] : null;
     if(empty(trim($user['email']))){
         $_SESSION['emptyEmail'] = true;
-        header("Location: home.html"); // change to the logon form
+        header("Location: home.php"); // change to the logon form
     }
     $user['email'] = filter_var($user['email'], FILTER_SANITIZE_EMAIL);
     if(!filter_var($user['email'], FILTER_VALIDATE_EMAIL)){
         // session variable for showing a message on the logon form about invalid email
         $_SESSION['validEmail'] = false;
-        header("Location: home.html"); // change # to the registration form
+        header("Location: home.php"); // change # to the registration form
     }
 
     // PASSWORD
     $user['password'] = filter_has_var(INPUT_POST, 'password') ? $_POST['password'] : null;
         if(empty(trim($user['password']))){
             $_SESSION['emptyPassword'] = true;
-            header("Location: home.html"); // change to the logon form
+            header("Location: home.php"); // change to the logon form
         }
     $user['password'] = filter_var($user['password'], FILTER_SANITIZE_SPECIAL_CHARS);
 
@@ -84,7 +84,7 @@ if(isset($_POST['submit'])) {
                 $home = cal_home();
                 
                 // if referer is empty or is set to the homepage, redirect to the dashboard
-                if(empty($referer) or $home === 'home.html'){ 
+                if(empty($referer) or $home === 'home.php'){ 
                     header("Location: dashboard.php"); 
                     die;
                 }
@@ -102,14 +102,14 @@ if(isset($_POST['submit'])) {
             else {
                 // set the session variable to show a message on the logon form about incorrect provided data
                 $_SESSION['password'] = false;
-                header("Location: home.html"); // change to the logon form
+                header("Location: home.php"); // change to the logon form
             }
 
         } //if the given email does not exist in the database, redirect to the form
         else {
             // set the session variable to show a message on the logon form that user is not registered
             $_SESSION['exists'] = false;
-            header("Location: home.html"); // change to the logon form
+            header("Location: home.php"); // change to the logon form
         }
 
     } catch (Exception $e) {
@@ -119,6 +119,6 @@ if(isset($_POST['submit'])) {
     }
 }
 // accidental access
-else header("Location: home.html"); 
+else header("Location: home.php"); 
 ?>
 

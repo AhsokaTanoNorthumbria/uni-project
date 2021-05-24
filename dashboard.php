@@ -189,10 +189,46 @@ if(isset($_COOKIE['logon_status'])){
                     </div>
                 </div>
                 <h2 class="mb-4 pt-3 text-center"><b>Based on your current courses, you may like...</b></h2> 
-                <div class="row mt-3 d-flex justify-content-between mx-2" id="display_recommended_courses">
+                <div class="row mt-3 d-flex justify-content-between mx-2" id="display_recommended">
                     
                     
                    <!---RECOMMENDATIONS--->
+                    <div class="row mt-3 d-flex justify-content-between mx-2">
+                <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
+                    <div class="col-11 d-flex justify-content-center">
+                        <div class="allCourse card">
+                            <a href="#">
+                                <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
+                                <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
+                    <div class="col-11 d-flex justify-content-center">
+                        <div class="allCourse card">
+                            <a href="#">
+                                <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
+                                <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-12 col-md-6 col-lg-4 px-3 mb-4 d-flex justify-content-center">
+                    <div class="col-11 d-flex justify-content-center">
+                        <div class="allCourse card">
+                            <a href="#">
+                                <img src="data/placeholder_featured_image.svg" class="img-fluid" alt="course image"/>
+                                <h4 class="ms-3 my-4"><b>Course Title</b></h4>
+                                <p class="mx-3">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Molestie ac feugiat sed lectus.</p>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                   
                     
                     
                 </div>

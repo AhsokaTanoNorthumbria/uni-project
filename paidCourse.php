@@ -25,9 +25,9 @@ if (!(empty($courseID))) {
 
 		// add new user to the active courses table
             $courseQuery = "INSERT INTO active_courses (course_user_id, course_id)
-                        VALUES (:cID, :uID)";
+                        VALUES (:uID, :cID)";
             $query = $dbConnection->prepare($courseQuery);
-            $query->execute(array(':cID' => $courseID, ':uID' => $userID));
+            $query->execute(array(':uID' => $userID, ':cID' => $courseID));
 		
 		// add new user to the course progress table
             $courseQuery = "INSERT INTO user_progress (prog_user_id, prog_course_id, prog_mod_order, prog_lesson_order)

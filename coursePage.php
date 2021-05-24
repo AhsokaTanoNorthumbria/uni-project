@@ -26,13 +26,13 @@ if(isset($_GET['courseID'])){
             <div class="container-fluid">
 
                 <!-- LOGO AND NAV TABS ---->
-                <a class="navbar-brand mx-4 pb-3" href="home.html"> <img src="data/logo.png" width="120" height="40" class="d-inline-block" alt="logo of BrainUp"></a>
+                <a class="navbar-brand mx-4 pb-3" href="home.php"> <img src="data/logo.png" width="120" height="40" class="d-inline-block" alt="logo of BrainUp"></a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav me-5 mb-2 mb-lg-0">
-                        <li class="nav-item"> <a class="nav-link" href="home.html">Home</a> </li>
+                        <li class="nav-item"> <a class="nav-link" href="home.php">Home</a> </li>
                         <li class="nav-item "> <a class="nav-link" href="courses.php">Courses</a> </li>
                     </ul>
 
@@ -111,7 +111,7 @@ if(isset($_GET['courseID'])){
                         <div class="my-4">
                             <div class="row d-flex justify-content-center">
                                 <div class="col-7 d-none d-lg-flex justify-content-center align-items-center">
-                                    <img src="data/pexels-photo-4050315%20(1).jpeg" class="img-fluid">
+                                    <img src="data/login.jpeg" class="img-fluid">
                                 </div>
                                 <div class="col-12 col-lg-4">
                                     <!---------------------->

@@ -36,7 +36,7 @@ if ((isset($_GET['confirmation']) && isset($_GET['hash']))){
                 $stQuery->execute(array(':email' => $email));
 
                 // redirect to the dashboard after
-                header("Location: #"); // change # to the dashboard
+                header("Location: dashboard.php"); // change # to the dashboard
 
             } catch(Exception $e){
                 $ermessage = "Failed to update email verification status";
@@ -52,7 +52,7 @@ if ((isset($_GET['confirmation']) && isset($_GET['hash']))){
         exceptionHandler($e, $ermessage);
     }
 
-} else header("Location: #") // change # to the homepage
+} else header("Location: home.php") // change # to the homepage
     
 function check_exp($email){
     try {
@@ -83,7 +83,7 @@ function check_exp($email){
 // redirect the user and show a message saying that the link is invalid or has expired (should request a new email)
 function redirect(){
     $_SESSION['hash'] = false;
-    header("Location: home.html"); 
+    header("Location: home.php"); 
 }    
 
 ?>
